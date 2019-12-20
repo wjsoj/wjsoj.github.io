@@ -12,15 +12,13 @@
     <meta name="description" content="SPFA单源最短路struct nod{
     int to,w;
 };
-vector  g[100005];
+vector &amp;lt;nod&amp;gt; g[100005];
 bool vis[500005];
 int dis[100005];
 
 int n,m,s;
 
-void spfa()
-{
- ">
+void">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -774,14 +772,14 @@ void spfa()
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        50
+                        499
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -798,10 +796,10 @@ void spfa()
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SPFA单源最短路"><a href="#SPFA单源最短路" class="headerlink" title="SPFA单源最短路"></a>SPFA单源最短路</h1><pre class="line-numbers language-C++"><code class="language-C++">struct nod{
+                <h1 id="SPFA单源最短路"><a href="#SPFA单源最短路" class="headerlink" title="SPFA单源最短路"></a>SPFA单源最短路</h1><pre><code>struct nod{
     int to,w;
 };
-vector <nod> g[100005];
+vector &lt;nod&gt; g[100005];
 bool vis[500005];
 int dis[100005];
 
@@ -810,16 +808,16 @@ int n,m,s;
 void spfa()
 {
     dis[s]=0;
-    queue<int> q;
+    queue&lt;int&gt; q;
     q.push(s);
     while(!q.empty())
     {
         int now=q.front();q.pop();
         vis[now]=0;
-        for(int i=0;i<g[now].size();i++)
+        for(int i=0;i&lt;g[now].size();i++)
         {
             nod nex=g[now][i];
-            if(dis[now]+nex.w<dis[nex.to])
+            if(dis[now]+nex.w&lt;dis[nex.to])
             {
                 dis[nex.to]=dis[now]+nex.w;
                 if(!vis[nex.to])
@@ -835,7 +833,7 @@ void spfa()
 int main(int argc, char const *argv[])
 {
     read(n),read(m),read(s);
-    for(int i=1;i<=m;i++)
+    for(int i=1;i&lt;=m;i++)
     {
         int x,y,w;
         read(x),read(y),read(w);
@@ -843,10 +841,10 @@ int main(int argc, char const *argv[])
         tmp.to=y;tmp.w=w;
         g[x].push_back(tmp);
     }
-    for(int i=1;i<=n;i++)
+    for(int i=1;i&lt;=n;i++)
         vis[i]=0,dis[i]=2147483647;
     spfa();
-    for(int i=1;i<=n;i++)
+    for(int i=1;i&lt;=n;i++)
     {
         if(s==i)
             printf("0 ");
@@ -854,27 +852,32 @@ int main(int argc, char const *argv[])
             printf("%d ",dis[i]);
     }
     return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="Tarjan求LCA"><a href="#Tarjan求LCA" class="headerlink" title="Tarjan求LCA"></a>Tarjan求LCA</h1><pre class="line-numbers language-C++"><code class="language-C++">#include<bits/stdc++.h>
+}
+```c++
+
+# Tarjan求LCA
+
+``` C
+#include&lt;bits/stdc++.h&gt;
 #define MAXN 500005
 using namespace std;
 typedef long long LL;
 int fa[MAXN],xx[MAXN],yy[MAXN];
 int n,m,q;
-map <int,int> ans[MAXN];
-vector<int> edge[MAXN],cha[MAXN];
+map &lt;int,int&gt; ans[MAXN];
+vector&lt;int&gt; edge[MAXN],cha[MAXN];
 bool vis[MAXN];
 
-inline void read(int &x){
+inline void read(int &amp;x){
     x=0;int f=1;char ch=getchar();
-    while(ch<'0'||ch>'9'){if(ch=='-')f=-1;ch=getchar();}
-    while(ch>='0'&&ch<='9'){x=(x<<3)+(x<<1)+(ch^48);ch=getchar();}
+    while(ch&lt;'0'||ch&gt;'9'){if(ch=='-')f=-1;ch=getchar();}
+    while(ch&gt;='0'&amp;&amp;ch&lt;='9'){x=(x&lt;&lt;3)+(x&lt;&lt;1)+(ch^48);ch=getchar();}
     x*=f;
 }
 
 void init()
 {
-    for(int i=1;i<=n;i++)
+    for(int i=1;i&lt;=n;i++)
         fa[i]=i;
 }
 
@@ -892,7 +895,7 @@ void unio(int x,int y)
 void tarjan(int x,int la)
 {
     int lens=edge[x].size();
-    for(int i=0;i<lens;i++)
+    for(int i=0;i&lt;lens;i++)
     {
         if(edge[x][i]!=la)
         {
@@ -902,7 +905,7 @@ void tarjan(int x,int la)
         }
     }
     lens=cha[x].size();
-    for(int i=0;i<lens;i++)
+    for(int i=0;i&lt;lens;i++)
         if(vis[cha[x][i]])
         {
             ans[x][cha[x][i]]=getfa(cha[x][i]);
@@ -913,25 +916,24 @@ int main()
 {
     read(n),read(m),read(q);
     init();
-    for(int i=1;i<n;i++)
+    for(int i=1;i&lt;n;i++)
     {
         int u,v;
         read(u),read(v);
         edge[u].push_back(v);
         edge[v].push_back(u);
     }
-    for(int i=1;i<=m;i++)
+    for(int i=1;i&lt;=m;i++)
     {
         read(xx[i]),read(yy[i]);
         cha[xx[i]].push_back(yy[i]);
         cha[yy[i]].push_back(xx[i]);
     }
     tarjan(q,0);
-    for(int i=1;i<=m;i++)
+    for(int i=1;i&lt;=m;i++)
         printf("%d\n",ans[xx[i]][yy[i]]);
     return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="最小生成树kruskal"><a href="#最小生成树kruskal" class="headerlink" title="最小生成树kruskal"></a>最小生成树kruskal</h1><pre><code>struct nod{
+}</code></pre><h1 id="最小生成树kruskal"><a href="#最小生成树kruskal" class="headerlink" title="最小生成树kruskal"></a>最小生成树kruskal</h1><pre class="line-numbers language-C++"><code class="language-C++">struct nod{
     int x,y,w;
 }e[400005];
 int fa[400005];
@@ -939,7 +941,7 @@ int n,m;
 
 bool cmp(nod a,nod b)
 {
-    return a.w&lt;b.w;
+    return a.w<b.w;
 }
 
 int find(int x)
@@ -953,12 +955,12 @@ int main(int argc, char const *argv[])
 {
     read(n),read(m);
     int ans=0;
-    for(int i=1;i&lt;=m;i++)
+    for(int i=1;i<=m;i++)
         read(e[i].x),read(e[i].y),read(e[i].w);
-    for(int i=1;i&lt;=n;i++)
+    for(int i=1;i<=n;i++)
         fa[i]=i;
     stable_sort(e+1,e+m+1,cmp);
-    for(int i=1;i&lt;=m;i++)
+    for(int i=1;i<=m;i++)
     {
         int u=find(e[i].x),v=find(e[i].y);
         if(u==v) continue;
@@ -970,43 +972,20 @@ int main(int argc, char const *argv[])
     else
         printf("%d\n",ans);
     return 0;
-}
-​```c++
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><pre><code>priority_queue &lt;int,vector&lt;int&gt;,less&lt;int&gt;&gt; q1;
+priority_queue &lt;int,vector&lt;int&gt;,greater&lt;int&gt;&gt; q2;
+``` C++
 
-# 堆
+# 斐波那契数列递推
+</code></pre><p>ll a[3][3];<br>ll res[3][3],ans[3][3];</p>
+<p>void mul(ll x[3][3],ll y[3][3])<br>{<br>    memset(res,0,sizeof(res));<br>    for(int i=1;i&lt;=2;i++)<br>        for(int j=1;j&lt;=2;j++)<br>            for(int k=1;k&lt;=2;k++)<br>                res[i][j]=(res[i][j]+x[i][k]*y[k][j])%mod;<br>    for(int i=1;i&lt;=2;i++)<br>        for(int j=1;j&lt;=2;j++)<br>            x[i][j]=res[i][j];<br>}</p>
+<p>int main()<br>{<br>    n-=2;<br>    a[1][1]=1,a[1][2]=1,a[2][1]=1,a[2][2]=0;<br>    ans[1][1]=1,ans[1][2]=1;<br>    while(n)<br>    {<br>        if(n&amp;1)<br>            mul(ans,a);<br>    n&gt;&gt;=1;<br>    mul(a,a);<br>    }<br>    printf(“%lld\n”,ans[1][1]);<br>}</p>
+<pre><code>
+# 矩阵快速幂
 
-​``` c++
-priority_queue &lt;int,vector&lt;int&gt;,less&lt;int&gt;&gt; q1;
-priority_queue &lt;int,vector&lt;int&gt;,greater&lt;int&gt;&gt; q2;</code></pre><h1 id="斐波那契数列递推"><a href="#斐波那契数列递推" class="headerlink" title="斐波那契数列递推"></a>斐波那契数列递推</h1><pre class="line-numbers language-c++"><code class="language-c++">ll a[3][3];
-ll res[3][3],ans[3][3];
-
-void mul(ll x[3][3],ll y[3][3])
-{
-    memset(res,0,sizeof(res));
-    for(int i=1;i<=2;i++)
-        for(int j=1;j<=2;j++)
-            for(int k=1;k<=2;k++)
-                res[i][j]=(res[i][j]+x[i][k]*y[k][j])%mod;
-    for(int i=1;i<=2;i++)
-        for(int j=1;j<=2;j++)
-            x[i][j]=res[i][j];
-}
-
-int main()
-{
-    n-=2;
-    a[1][1]=1,a[1][2]=1,a[2][1]=1,a[2][2]=0;
-    ans[1][1]=1,ans[1][2]=1;
-    while(n)
-    {
-        if(n&1)
-            mul(ans,a);
-    n>>=1;
-    mul(a,a);
-    }
-    printf("%lld\n",ans[1][1]);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="矩阵快速幂"><a href="#矩阵快速幂" class="headerlink" title="矩阵快速幂"></a>矩阵快速幂</h1><pre class="line-numbers language-c++"><code class="language-c++">struct nod{
+``` Css
+struct nod{
     long long a[105][105];
 };
 
@@ -1014,11 +993,11 @@ nod a,b,c;
 
 inline void out(nod c)
 {
-    for(int i=1;i<=n;i++)
+    for(int i=1;i&lt;=n;i++)
     {
-        for(int j=1;j<=n;j++)
-            cout<<c.a[i][j]<<" ";
-        cout<<endl;
+        for(int j=1;j&lt;=n;j++)
+            cout&lt;&lt;c.a[i][j]&lt;&lt;" ";
+        cout&lt;&lt;endl;
     }
 }
 
@@ -1026,9 +1005,9 @@ inline nod mul(nod a,nod b)
 {
     nod ans;
     memset(ans.a,0,sizeof(ans.a));
-    for(int i=1;i<=n;i++)
-        for(int j=1;j<=n;j++)
-            for(int k=1;k<=n;k++)
+    for(int i=1;i&lt;=n;i++)
+        for(int j=1;j&lt;=n;j++)
+            for(int k=1;k&lt;=n;k++)
             {
                 ans.a[i][j]=(ans.a[i][j]+(a.a[i][k]*b.a[k][j]))%mod;
             }
@@ -1038,22 +1017,21 @@ inline nod mul(nod a,nod b)
 inline nod kuaisumi(nod a,int k)
 {
     nod ans;
-    for(int i=1;i<=n;i++)
-        for(int j=1;j<=n;j++)
+    for(int i=1;i&lt;=n;i++)
+        for(int j=1;j&lt;=n;j++)
         {
             if(i==j) ans.a[i][j]=1;
             else ans.a[i][j]=0;
         }
     while(k)
     {
-        if(k&1)
+        if(k&amp;1)
             ans=mul(ans,a);
         a=mul(a,a);
-        k>>=1;
+        k&gt;&gt;=1;
     }
     return ans;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="组合数"><a href="#组合数" class="headerlink" title="组合数"></a>组合数</h1><pre class="line-numbers language-c++"><code class="language-c++">void work()
+}</code></pre><h1 id="组合数"><a href="#组合数" class="headerlink" title="组合数"></a>组合数</h1><pre class="line-numbers language-c++"><code class="language-c++">void work()
 {
     for(int i=0;i<=n;i++)
         c[i][i]=c[i][0]=1;
@@ -1142,39 +1120,23 @@ int main(int argc, char const *argv[])
             cout<<ans[i];
     return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="快速读入"><a href="#快速读入" class="headerlink" title="快速读入"></a>快速读入</h1><h2 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h2><pre class="line-numbers language-c++"><code class="language-c++">inline void read(int &x){
+<h1 id="快速读入"><a href="#快速读入" class="headerlink" title="快速读入"></a>快速读入</h1><h2 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h2><pre><code>inline void read(int &amp;x){
     x=0;int f=1;
     char ch=getchar();
-    while(ch<'0'||ch>'9'){
+    while(ch&lt;'0'||ch&gt;'9'){
         if(ch=='-')
             f=-1;
         ch=getchar();
     }
-    while(ch>='0'&&ch<='9'){
-        x=(x<<1)+(x<<3)+(ch^48);
+    while(ch&gt;='0'&amp;&amp;ch&lt;='9'){
+        x=(x&lt;&lt;1)+(x&lt;&lt;3)+(ch^48);
         ch=getchar();
     }
     x*=f;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="实数（注意输入必须要包含小数点）"><a href="#实数（注意输入必须要包含小数点）" class="headerlink" title="实数（注意输入必须要包含小数点）"></a>实数（注意输入必须要包含小数点）</h2><pre class="line-numbers language-c++"><code class="language-c++">inline void read(double &x){
-    x=0;int f=1;double y=1.0;
-    char ch=getchar();
-    while(ch<'0'||ch>'9'){
-        if(ch=='-')
-            f=-1;
-        ch=getchar();
-    }
-    while(ch>='0'&&ch<='9'){
-        x=(x*10)+(ch^48);
-        ch=getchar();
-    }
-    ch=getchar();
-    while(ch>='0'&& ch<='9'){
-        x+=(y/=10)*(ch^48);
-        ch=getchar();
-    }
-    x*=f;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}
+```C++
+## 实数（注意输入必须要包含小数点）
+</code></pre><p>inline void read(double &amp;x){<br>    x=0;int f=1;double y=1.0;<br>    char ch=getchar();<br>    while(ch&lt;’0’||ch&gt;’9’){<br>        if(ch==’-‘)<br>            f=-1;<br>        ch=getchar();<br>    }<br>    while(ch&gt;=’0’&amp;&amp;ch&lt;=’9’){<br>        x=(x<em>10)+(ch^48);<br>        ch=getchar();<br>    }<br>    ch=getchar();<br>    while(ch&gt;=’0’&amp;&amp; ch&lt;=’9’){<br>        x+=(y/=10)</em>(ch^48);<br>        ch=getchar();<br>    }<br>    x*=f;<br>}<br>```C++</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1941,7 +1903,7 @@ int main(int argc, char const *argv[])
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">1.4k</span> 字
+                <span class="white-color">1.8k</span> 字
             
 
             
