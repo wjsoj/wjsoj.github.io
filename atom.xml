@@ -39,6 +39,31 @@
   </entry>
   
   <entry>
+    <title>常用模板汇总</title>
+    <link href="https://wjsoj.github.io/2019/12/20/chang-yong-mo-ban-hui-zong/"/>
+    <id>https://wjsoj.github.io/2019/12/20/chang-yong-mo-ban-hui-zong/</id>
+    <published>2019-12-20T03:41:03.000Z</published>
+    <updated>2019-12-20T16:06:50.331Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;SPFA单源最短路&quot;&gt;&lt;a href=&quot;#SPFA单源最短路&quot; class=&quot;headerlink&quot; title=&quot;SPFA单源最短路&quot;&gt;&lt;/a&gt;SPFA单源最短路&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;struct nod{
+    int
+        
+      
+    
+    </summary>
+    
+    
+      <category term="模板" scheme="https://wjsoj.github.io/tags/%E6%A8%A1%E6%9D%BF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>博客开源</title>
     <link href="https://wjsoj.github.io/2019/08/27/blog-open-source/"/>
     <id>https://wjsoj.github.io/2019/08/27/blog-open-source/</id>
