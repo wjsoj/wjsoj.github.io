@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wjsoj.github.io/"/>
-  <updated>2019-12-20T15:51:50.541Z</updated>
+  <updated>2019-12-20T15:30:55.175Z</updated>
   <id>https://wjsoj.github.io/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>[object Object]</title>
-    <link href="https://wjsoj.github.io/2019/12/20/chang-yong-mo-ban-hui-zong/"/>
-    <id>https://wjsoj.github.io/2019/12/20/chang-yong-mo-ban-hui-zong/</id>
-    <published>2019-12-20T15:34:18.927Z</published>
-    <updated>2019-12-20T15:51:50.541Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;SPFA单源最短路&quot;&gt;&lt;a href=&quot;#SPFA单源最短路&quot; class=&quot;headerlink&quot; title=&quot;SPFA单源最短路&quot;&gt;&lt;/a&gt;SPFA单源最短路&lt;/h1&gt;&lt;pre class=&quot;line-numbers language-c++&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
