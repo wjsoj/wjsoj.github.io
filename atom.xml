@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wjsoj.github.io/"/>
-  <updated>2019-12-21T13:43:33.873Z</updated>
+  <updated>2019-12-21T15:33:09.714Z</updated>
   <id>https://wjsoj.github.io/</id>
   
   <author>
@@ -17,11 +17,297 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Sublime编译系统搭建与配置</title>
+    <link href="https://wjsoj.github.io/2019/12/21/sublime/"/>
+    <id>https://wjsoj.github.io/2019/12/21/sublime/</id>
+    <published>2019-12-21T03:54:03.000Z</published>
+    <updated>2019-12-21T15:33:09.714Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一-配置环境变量&quot;&gt;&lt;a href=&quot;#一-配置环境变量&quot; class=&quot;headerlink&quot; title=&quot;一.配置环境变量&quot;&gt;&lt;/a&gt;一.配置环境变量&lt;/h2&gt;&lt;h5 id=&quot;将MinGW下的-bin路径加入系统环境变量Path中。&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="software" scheme="https://wjsoj.github.io/categories/software/"/>
+    
+    
+      <category term="software" scheme="https://wjsoj.github.io/tags/software/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RQNOJ 569 Milking Time</title>
+    <link href="https://wjsoj.github.io/2019/12/21/rqnoj-569-milking-time/"/>
+    <id>https://wjsoj.github.io/2019/12/21/rqnoj-569-milking-time/</id>
+    <published>2019-12-21T03:52:03.000Z</published>
+    <updated>2019-12-21T15:16:40.813Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;RQNOJ-569-Milking-Time&quot;&gt;&lt;a href=&quot;#RQNOJ-569-Milking-Time&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 569 Milking Time&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 569
+        
+      
+    
+    </summary>
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
+    
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RQNOJ 429 词链</title>
+    <link href="https://wjsoj.github.io/2019/12/21/rqnoj-429-ci-lian/"/>
+    <id>https://wjsoj.github.io/2019/12/21/rqnoj-429-ci-lian/</id>
+    <published>2019-12-21T03:50:03.000Z</published>
+    <updated>2019-12-21T15:16:21.129Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;RQNOJ-429-词链&quot;&gt;&lt;a href=&quot;#RQNOJ-429-词链&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 429 词链&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 429 词链&lt;/strong&gt;&lt;/h1&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
+    
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RQNOJ 188 购物问题</title>
+    <link href="https://wjsoj.github.io/2019/12/21/rqnoj-188-gou-wu-wen-ti/"/>
+    <id>https://wjsoj.github.io/2019/12/21/rqnoj-188-gou-wu-wen-ti/</id>
+    <published>2019-12-21T03:49:03.000Z</published>
+    <updated>2019-12-21T15:15:51.697Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;RQNOJ-188-购物问题&quot;&gt;&lt;a href=&quot;#RQNOJ-188-购物问题&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 188 购物问题&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 188 购物问题&lt;/strong&gt;&lt;/h1&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
+    
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RQNOJ 117 最佳课题选择</title>
+    <link href="https://wjsoj.github.io/2019/12/21/rqnoj-117-zui-jia-ke-ti-xuan-ze/"/>
+    <id>https://wjsoj.github.io/2019/12/21/rqnoj-117-zui-jia-ke-ti-xuan-ze/</id>
+    <published>2019-12-21T03:48:03.000Z</published>
+    <updated>2019-12-21T15:15:26.536Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;RQNOJ-117-最佳课题选择&quot;&gt;&lt;a href=&quot;#RQNOJ-117-最佳课题选择&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 117 最佳课题选择&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 117
+        
+      
+    
+    </summary>
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
+    
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RQNOJ 99 配置魔药</title>
+    <link href="https://wjsoj.github.io/2019/12/21/rqnoj-99-pei-zhi-mo-yao/"/>
+    <id>https://wjsoj.github.io/2019/12/21/rqnoj-99-pei-zhi-mo-yao/</id>
+    <published>2019-12-21T03:47:03.000Z</published>
+    <updated>2019-12-21T15:17:24.880Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;RQNOJ-99-配置魔药&quot;&gt;&lt;a href=&quot;#RQNOJ-99-配置魔药&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 99 配置魔药&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 99 配置魔药&lt;/strong&gt;&lt;/h1&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
+    
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RQNOJ 95 多多看DVD(加强版)</title>
+    <link href="https://wjsoj.github.io/2019/12/21/rqnoj-95-duo-duo-kan-dvd-jia-qiang-ban/"/>
+    <id>https://wjsoj.github.io/2019/12/21/rqnoj-95-duo-duo-kan-dvd-jia-qiang-ban/</id>
+    <published>2019-12-21T03:46:03.000Z</published>
+    <updated>2019-12-21T15:14:37.130Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;RQNOJ-95-多多看DVD-加强版&quot;&gt;&lt;a href=&quot;#RQNOJ-95-多多看DVD-加强版&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 95 多多看DVD(加强版)&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 95
+        
+      
+    
+    </summary>
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
+    
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RQNOJ 57 找啊找啊找GF</title>
+    <link href="https://wjsoj.github.io/2019/12/21/rqnoj-57-zhao-a-zhao-a-zhao-gf/"/>
+    <id>https://wjsoj.github.io/2019/12/21/rqnoj-57-zhao-a-zhao-a-zhao-gf/</id>
+    <published>2019-12-21T03:45:03.000Z</published>
+    <updated>2019-12-21T15:14:10.825Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;RQNOJ-57-找啊找啊找GF&quot;&gt;&lt;a href=&quot;#RQNOJ-57-找啊找啊找GF&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 57 找啊找啊找GF&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 57
+        
+      
+    
+    </summary>
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
+    
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown语法知识</title>
+    <link href="https://wjsoj.github.io/2019/12/21/markddown-yu-fa-zhi-shi/"/>
+    <id>https://wjsoj.github.io/2019/12/21/markddown-yu-fa-zhi-shi/</id>
+    <published>2019-12-21T03:44:03.000Z</published>
+    <updated>2019-12-21T15:21:57.105Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一-Markdown是什么？&quot;&gt;&lt;a href=&quot;#一-Markdown是什么？&quot; class=&quot;headerlink&quot; title=&quot;一.Markdown是什么？&quot;&gt;&lt;/a&gt;一.Markdown是什么？&lt;/h1&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="software" scheme="https://wjsoj.github.io/categories/software/"/>
+    
+    
+      <category term="software" scheme="https://wjsoj.github.io/tags/software/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>新华林问题</title>
+    <link href="https://wjsoj.github.io/2019/12/21/xin-hua-lin-wen-ti/"/>
+    <id>https://wjsoj.github.io/2019/12/21/xin-hua-lin-wen-ti/</id>
+    <published>2019-12-21T03:44:03.000Z</published>
+    <updated>2019-12-21T15:19:30.391Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;新华林问题验证&quot;&gt;&lt;a href=&quot;#新华林问题验证&quot; class=&quot;headerlink&quot; title=&quot;新华林问题验证&quot;&gt;&lt;/a&gt;新华林问题验证&lt;/h1&gt;&lt;h3 id=&quot;问题描述：&quot;&gt;&lt;a href=&quot;#问题描述：&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="math" scheme="https://wjsoj.github.io/categories/math/"/>
+    
+    
+      <category term="math" scheme="https://wjsoj.github.io/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>欧拉筛理解与实现</title>
+    <link href="https://wjsoj.github.io/2019/12/21/ou-la-shai/"/>
+    <id>https://wjsoj.github.io/2019/12/21/ou-la-shai/</id>
+    <published>2019-12-21T03:43:03.000Z</published>
+    <updated>2019-12-21T15:04:24.192Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在传统的素数筛法中，我们使用了对于每一个数n，在 1~(√n)
+        
+      
+    
+    </summary>
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
+    
+    
+      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
+    
+  </entry>
+  
+  <entry>
     <title>博客园皮肤配置</title>
     <link href="https://wjsoj.github.io/2019/12/21/bo-ke-yuan-pi-fu-pei-zhi/"/>
     <id>https://wjsoj.github.io/2019/12/21/bo-ke-yuan-pi-fu-pei-zhi/</id>
     <published>2019-12-21T03:42:03.000Z</published>
-    <updated>2019-12-21T13:43:33.873Z</updated>
+    <updated>2019-12-21T15:04:21.995Z</updated>
     
     <summary type="html">
     
@@ -35,7 +321,7 @@
     
     </summary>
     
-      <category term="软件" scheme="https://wjsoj.github.io/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="blog" scheme="https://wjsoj.github.io/categories/blog/"/>
     
     
       <category term="blog" scheme="https://wjsoj.github.io/tags/blog/"/>
@@ -47,7 +333,7 @@
     <link href="https://wjsoj.github.io/2019/12/21/hello-world/"/>
     <id>https://wjsoj.github.io/2019/12/21/hello-world/</id>
     <published>2019-12-21T03:41:03.000Z</published>
-    <updated>2019-12-21T13:54:31.940Z</updated>
+    <updated>2019-12-21T15:31:05.645Z</updated>
     
     <summary type="html">
     
@@ -61,7 +347,7 @@
     
     </summary>
     
-      <category term="软件" scheme="https://wjsoj.github.io/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="blog" scheme="https://wjsoj.github.io/categories/blog/"/>
     
     
       <category term="blog" scheme="https://wjsoj.github.io/tags/blog/"/>
@@ -73,7 +359,7 @@
     <link href="https://wjsoj.github.io/2019/12/20/chang-yong-mo-ban-hui-zong/"/>
     <id>https://wjsoj.github.io/2019/12/20/chang-yong-mo-ban-hui-zong/</id>
     <published>2019-12-20T03:41:03.000Z</published>
-    <updated>2019-12-21T12:58:28.203Z</updated>
+    <updated>2019-12-21T15:33:14.283Z</updated>
     
     <summary type="html">
     
@@ -87,10 +373,10 @@
     
     </summary>
     
-      <category term="C++" scheme="https://wjsoj.github.io/categories/C/"/>
+      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
     
     
-      <category term="coding" scheme="https://wjsoj.github.io/tags/coding/"/>
+      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
     
   </entry>
   
@@ -99,7 +385,7 @@
     <link href="https://wjsoj.github.io/2019/08/27/blog-open-source/"/>
     <id>https://wjsoj.github.io/2019/08/27/blog-open-source/</id>
     <published>2019-08-27T03:41:03.000Z</published>
-    <updated>2019-12-21T12:58:07.036Z</updated>
+    <updated>2019-12-21T15:33:13.365Z</updated>
     
     <summary type="html">
     
@@ -113,7 +399,7 @@
     
     </summary>
     
-      <category term="软件" scheme="https://wjsoj.github.io/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="blog" scheme="https://wjsoj.github.io/categories/blog/"/>
     
     
       <category term="blog" scheme="https://wjsoj.github.io/tags/blog/"/>
