@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wjsoj.github.io/"/>
-  <updated>2019-12-23T13:05:15.650Z</updated>
+  <updated>2019-12-29T06:42:13.259Z</updated>
   <id>https://wjsoj.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VS code常用插件及编译系统配置</title>
+    <link href="https://wjsoj.github.io/2019/12/29/vs-code/"/>
+    <id>https://wjsoj.github.io/2019/12/29/vs-code/</id>
+    <published>2019-12-29T05:44:03.000Z</published>
+    <updated>2019-12-29T06:42:13.259Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;常用插件&quot;&gt;&lt;a href=&quot;#常用插件&quot; class=&quot;headerlink&quot; title=&quot;常用插件&quot;&gt;&lt;/a&gt;常用插件&lt;/h1&gt;&lt;h3 id=&quot;1-Bracket-Pair-Colorizer&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="software" scheme="https://wjsoj.github.io/categories/software/"/>
+    
+    
+      <category term="software" scheme="https://wjsoj.github.io/tags/software/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>新华林问题</title>
+    <link href="https://wjsoj.github.io/2019/12/29/xin-hua-lin-wen-ti/"/>
+    <id>https://wjsoj.github.io/2019/12/29/xin-hua-lin-wen-ti/</id>
+    <published>2019-12-29T03:44:03.000Z</published>
+    <updated>2019-12-29T06:12:38.993Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;新华林问题验证&quot;&gt;&lt;a href=&quot;#新华林问题验证&quot; class=&quot;headerlink&quot; title=&quot;新华林问题验证&quot;&gt;&lt;/a&gt;新华林问题验证&lt;/h1&gt;&lt;h2 id=&quot;问题描述：&quot;&gt;&lt;a href=&quot;#问题描述：&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="math" scheme="https://wjsoj.github.io/categories/math/"/>
+    
+    
+      <category term="math" scheme="https://wjsoj.github.io/tags/math/"/>
+    
+  </entry>
   
   <entry>
     <title>Sublime编译系统搭建与配置</title>
@@ -247,32 +299,6 @@
     
     
       <category term="software" scheme="https://wjsoj.github.io/tags/software/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>新华林问题</title>
-    <link href="https://wjsoj.github.io/2019/12/21/xin-hua-lin-wen-ti/"/>
-    <id>https://wjsoj.github.io/2019/12/21/xin-hua-lin-wen-ti/</id>
-    <published>2019-12-21T03:44:03.000Z</published>
-    <updated>2019-12-23T13:05:41.463Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;新华林问题验证&quot;&gt;&lt;a href=&quot;#新华林问题验证&quot; class=&quot;headerlink&quot; title=&quot;新华林问题验证&quot;&gt;&lt;/a&gt;新华林问题验证&lt;/h1&gt;&lt;h3 id=&quot;问题描述：&quot;&gt;&lt;a href=&quot;#问题描述：&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="math" scheme="https://wjsoj.github.io/categories/math/"/>
-    
-    
-      <category term="math" scheme="https://wjsoj.github.io/tags/math/"/>
     
   </entry>
   

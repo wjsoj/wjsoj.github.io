@@ -593,7 +593,7 @@ $$使得\ \ x \ast y \ast z=w^3 (w \in N)$$
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-21
+                    2019-12-29
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -607,14 +607,14 @@ $$使得\ \ x \ast y \ast z=w^3 (w \in N)$$
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        341
+                        1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        5 分
                     </div>
                     
                 
@@ -626,10 +626,10 @@ $$使得\ \ x \ast y \ast z=w^3 (w \in N)$$
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="新华林问题验证"><a href="#新华林问题验证" class="headerlink" title="新华林问题验证"></a>新华林问题验证</h1><h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p>$$<br>对于质数p \ \   (p \neq 2,5,11)<br>$$</p>
+                <h1 id="新华林问题验证"><a href="#新华林问题验证" class="headerlink" title="新华林问题验证"></a>新华林问题验证</h1><h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><p>$$<br>对于质数p \ \   (p \neq 2,5,11)<br>$$</p>
 <p>$$<br>必定存在\ \ p=x+y+z<br>$$</p>
 <p>$$<br>使得\ \ x \ast y \ast z=w^3 (w \in N)<br>$$</p>
-<h3 id="代码：（范围：1-10000）"><a href="#代码：（范围：1-10000）" class="headerlink" title="代码：（范围：1~10000）"></a>代码：（范围：1~10000）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<h2 id="代码：（范围：1-10000）"><a href="#代码：（范围：1-10000）" class="headerlink" title="代码：（范围：1~10000）"></a>代码：（范围：1~10000）</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdlib></span></span>
@@ -706,6 +706,134 @@ ll top<span class="token operator">=</span><span class="token number">1</span><s
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="更新：C-11-多线程"><a href="#更新：C-11-多线程" class="headerlink" title="更新：C++11 多线程"></a>更新：C++11 多线程</h2><p>使用 <code>#include &lt;thread&gt;</code> 头文件，并加入编译选项 <code>-std=c++11</code> ，注意<strong>mingw</strong>下编译无法通过，会提示你是否引用此头文件，但实际上无论是否引用总会编译错误，因此建议使用Linux原生<strong>gcc</strong>或者下载<strong>MinGW-W64</strong>编译版本。这次更新加入了20个线程对前5000个素数（实际素数大小大约到50000）进行分段处理，使得相同时间下运算时间大幅减少（就是cpu快要爆炸）。</p>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdlib></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cmath></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stack></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;set></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;ctime></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;conio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;thread></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
+
+<span class="token keyword">bool</span> isprime<span class="token punctuation">[</span><span class="token number">100005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> prime<span class="token punctuation">[</span><span class="token number">50005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+ll top<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">bool</span> <span class="token function">canfind</span><span class="token punctuation">(</span>ll x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ll tx<span class="token operator">=</span><span class="token function">ceil</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">long</span> <span class="token keyword">double</span><span class="token punctuation">)</span><span class="token function">pow</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token number">1</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>tx<span class="token operator">*</span>tx<span class="token operator">*</span>tx<span class="token operator">==</span>x<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span>tx<span class="token operator">&lt;&lt;</span><span class="token string">"^3        \t"</span><span class="token operator">&lt;&lt;</span>x<span class="token operator">&lt;&lt;</span><span class="token string">"        \t"</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">work</span><span class="token punctuation">(</span><span class="token keyword">int</span> l<span class="token punctuation">,</span><span class="token keyword">int</span> r<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>l<span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>r<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        ll k<span class="token operator">=</span>prime<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">;</span>
+        <span class="token keyword">bool</span> ff<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span>ll a<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>a<span class="token operator">&lt;=</span>k<span class="token punctuation">;</span>a<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>ff<span class="token punctuation">)</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span>ll b<span class="token operator">=</span>a<span class="token punctuation">;</span>b<span class="token operator">&lt;=</span><span class="token punctuation">(</span>k<span class="token operator">&lt;&lt;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>b<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                ll cc<span class="token operator">=</span>prime<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span>a<span class="token operator">-</span>b<span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>cc<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">canfind</span><span class="token punctuation">(</span>a<span class="token operator">*</span>b<span class="token operator">*</span>cc<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    cout<span class="token operator">&lt;&lt;</span>prime<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span><span class="token string">" = "</span><span class="token operator">&lt;&lt;</span>a<span class="token operator">&lt;&lt;</span><span class="token string">"+"</span><span class="token operator">&lt;&lt;</span>b<span class="token operator">&lt;&lt;</span><span class="token string">"+"</span><span class="token operator">&lt;&lt;</span>cc<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+                    ff<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// getch();    </span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">freopen</span><span class="token punctuation">(</span><span class="token string">"write.txt"</span><span class="token punctuation">,</span><span class="token string">"w"</span><span class="token punctuation">,</span><span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">memset</span><span class="token punctuation">(</span>isprime<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>isprime<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">50000</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>isprime<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            prime<span class="token punctuation">[</span>top<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>top<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">*</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span><span class="token number">50000</span><span class="token punctuation">)</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            isprime<span class="token punctuation">[</span>i<span class="token operator">*</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">%</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//    cout&lt;&lt;top&lt;&lt;endll;</span>
+    thread <span class="token function">th1</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">250</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th2</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">251</span><span class="token punctuation">,</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th3</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">501</span><span class="token punctuation">,</span><span class="token number">750</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th4</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">751</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th5</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">1001</span><span class="token punctuation">,</span><span class="token number">1250</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th6</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">1251</span><span class="token punctuation">,</span><span class="token number">1500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th7</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">1501</span><span class="token punctuation">,</span><span class="token number">1750</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th8</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">1751</span><span class="token punctuation">,</span><span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th9</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">2001</span><span class="token punctuation">,</span><span class="token number">2250</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th10</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">2251</span><span class="token punctuation">,</span><span class="token number">2500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th11</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">2501</span><span class="token punctuation">,</span><span class="token number">2750</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th12</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">2751</span><span class="token punctuation">,</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th13</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">3001</span><span class="token punctuation">,</span><span class="token number">3250</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th14</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">3251</span><span class="token punctuation">,</span><span class="token number">3500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th15</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">3501</span><span class="token punctuation">,</span><span class="token number">3750</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th16</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">3751</span><span class="token punctuation">,</span><span class="token number">4000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th17</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">4001</span><span class="token punctuation">,</span><span class="token number">4250</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th18</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">4251</span><span class="token punctuation">,</span><span class="token number">4500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th19</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">4501</span><span class="token punctuation">,</span><span class="token number">4750</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    thread <span class="token function">th20</span><span class="token punctuation">(</span>work<span class="token punctuation">,</span><span class="token number">4751</span><span class="token punctuation">,</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    th1<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th2<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th3<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th4<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th5<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th6<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th7<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th8<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th9<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th10<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th11<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th12<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th13<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th14<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th15<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th16<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th17<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th18<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th19<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    th20<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"Working Time:  "</span><span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token function">clock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">/</span>CLOCKS_PER_SEC<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="运行效果：（By-AMD-Ryzen7-2700X）"><a href="#运行效果：（By-AMD-Ryzen7-2700X）" class="headerlink" title="运行效果：（By AMD Ryzen7 2700X）"></a>运行效果：（By AMD Ryzen7 2700X）</h3><p>原程序下跑50000：<strong>248.60s</strong><br>多线程下用时：    <strong>23.912s</strong></p>
+<h3 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h3><h4 id="1-庞大的CPU占用率"><a href="#1-庞大的CPU占用率" class="headerlink" title="1.庞大的CPU占用率"></a>1.庞大的CPU占用率</h4><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://yanxuan.nosdn.127.net/eaed7a30ba20c435fa6bcf771a0609b3.png" alt="CPU占用"></p>
+<h4 id="2-乱序输出"><a href="#2-乱序输出" class="headerlink" title="2.乱序输出"></a>2.乱序输出</h4><p>正在尝试把所有结果统一存储，但这样还会加大内存负担，排序的用时也是不可接受的。此外，线程的插入顺序也有待改进，当前模式下必须等最慢的线程跑完才能结束进程，如果改进一下算法的话，应该有可能使每一个线程的结束时间相当，达到最大化效率。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -750,7 +878,7 @@ ll top<span class="token operator">=</span><span class="token number">1</span><s
                     </span>
                     <a href="https://wjsoj.github.io" class="b-link-green">WJS的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/12/21/xin-hua-lin-wen-ti/" class="b-link-green">新华林问题</a>
+                    <a href="/2019/12/29/xin-hua-lin-wen-ti/" class="b-link-green">新华林问题</a>
                 </p>
             </div>
 
@@ -776,24 +904,27 @@ ll top<span class="token operator">=</span><span class="token number">1</span><s
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/12/21/markddown-yu-fa-zhi-shi/">
+                <a href="/2019/12/29/vs-code/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Markdown语法知识">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="VS code常用插件及编译系统配置">
                         
-                        <span class="card-title">Markdown语法知识</span>
+                        <span class="card-title">VS code常用插件及编译系统配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一.Markdown是什么？ 百度百科：Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。 1.Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用
+                            常用插件1.Bracket Pair Colorizer如彩虹般顺滑的括号高亮匹配
+2.C/C++基础插件
+3.carbon-now-sh高端代码截图上传工具
+4.Chinese (Simplified) Language Pack for
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-21
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-29
                         </span>
                         <span class="publish-author">
                             
@@ -825,22 +956,21 @@ ll top<span class="token operator">=</span><span class="token number">1</span><s
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/21/ou-la-shai/">
+                <a href="/2019/12/21/sublime/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="欧拉筛理解与实现">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Sublime编译系统搭建与配置">
                         
-                        <span class="card-title">欧拉筛理解与实现</span>
+                        <span class="card-title">Sublime编译系统搭建与配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在传统的素数筛法中，我们使用了对于每一个数n，在 1~(√n) 范围内进行取模检查，这样逐一判断的复杂度为n(√n)。
-但如果我们需要更快的筛法时怎么办？
-于是著名的欧拉筛诞生了。它能将复杂度降为O(n)级别。
-1.关键理解：欧拉筛的原理是
+                            一.配置环境变量将MinGW下的/bin路径加入系统环境变量Path中。命令提示符输入”g++ -v“检查结果。
+二.添加编译系统所需文件1.负责判断错误、显示命令提示符标题的”run.bat”@echo off
+title Running
                         
                     </div>
                     <div class="publish-info">
@@ -851,8 +981,8 @@ ll top<span class="token operator">=</span><span class="token number">1</span><s
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/algorithm/" class="post-category" target="_blank">
-                                    algorithm
+                            <a href="/categories/software/" class="post-category" target="_blank">
+                                    software
                                 </a>
                             
                             
@@ -862,8 +992,8 @@ ll top<span class="token operator">=</span><span class="token number">1</span><s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/algorithm/" target="_blank">
-                        <span class="chip bg-color">algorithm</span>
+                    <a href="/tags/software/" target="_blank">
+                        <span class="chip bg-color">software</span>
                     </a>
                     
                 </div>
@@ -1034,7 +1164,7 @@ ll top<span class="token operator">=</span><span class="token number">1</span><s
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">16.1k</span> 字
+                <span class="white-color">17.1k</span> 字
             
 
             
@@ -1271,5 +1401,5 @@ $(function () {
             </script>
         
 
-    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>
