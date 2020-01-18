@@ -6,13 +6,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="欧拉筛理解与实现, WJS的博客">
+    <meta name="keywords" content="Minecraft配置合集, WJS的博客">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="在传统的素数筛法中，我们使用了对于每一个数n，在 1~(√n) 范围内进行取模检查，这样逐一判断的复杂度为n(√n)。
-但如果我们需要更快的筛法时怎么办？
-于是著名的欧拉筛诞生了。它能将复杂度降为O(n)级别。
-1.关键理解：欧拉筛的原理是">
+    <meta name="description" content="1.前期准备1.1 运行环境1.1.1 Windows 10 64位 + Java 8 64位注意Java 8的选择是因为要运行1.12版本，如果是最新版本的MC应该可以支持Java 10
+(如果非64位在运行游戏时内存无法调至2G以上且限">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>欧拉筛理解与实现 | WJS的博客</title>
+    <title>Minecraft配置合集 | WJS的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -451,13 +449,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        欧拉筛理解与实现
+                        Minecraft配置合集
                     </div>
                 </div>
             </div>
@@ -569,8 +567,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/algorithm/" target="_blank">
-                                <span class="chip bg-color">algorithm</span>
+                            <a href="/tags/software/" target="_blank">
+                                <span class="chip bg-color">software</span>
                             </a>
                         
                     </div>
@@ -581,8 +579,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/algorithm/" class="post-category" target="_blank">
-                                algorithm
+                            <a href="/categories/software/" class="post-category" target="_blank">
+                                software
                             </a>
                         
                     </div>
@@ -593,7 +591,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-21
+                    2020-01-18
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -607,14 +605,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        750
+                        261
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        1 分
                     </div>
                     
                 
@@ -626,70 +624,12 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在传统的素数筛法中，我们使用了对于每一个数n，在 1~(√n) 范围内进行取模检查，这样逐一判断的复杂度为n(√n)。</p>
-<p>但如果我们需要更快的筛法时怎么办？</p>
-<p>于是著名的<strong>欧拉筛</strong>诞生了。它能将复杂度降为<strong>O(n)</strong>级别。</p>
-<h2 id="1-关键理解："><a href="#1-关键理解：" class="headerlink" title="1.关键理解："></a>1.关键理解：</h2><p>欧拉筛的原理是保证在 2<del>n 范围中的每一个合数都能被<strong>唯一分解成它的最小质因数与除自己外最大的因数相乘的形式</strong>。因此我们枚举2</del>n中的每一个数作为筛法中的“除自己外的最大因数”，如果它未被标记为合数，就先将它放入素数表内，再将这个最大因数与素数表中已经找到的素数作为最小质因数相乘，将得到的这些数标记为合数。最后输出得到的素数表即可。</p>
-<p>但是我们如何保证<strong>每个合数都被唯一分解</strong>？</p>
-<h3 id="解决方法如下："><a href="#解决方法如下：" class="headerlink" title="解决方法如下："></a><strong>解决方法如下：</strong></h3><p>当此时取出的素数表中的素数（即枚举的最小质因子）整除于当前枚举的合数时，我们就停止循环素数表，开始枚举下一个合数。</p>
-<h3 id="证明如下："><a href="#证明如下：" class="headerlink" title="证明如下："></a><strong>证明如下：</strong></h3><p>设当前枚举的最小质因子prime[i]整除于合数n时，即我们要筛掉合数 <strong>n*prime[i]</strong> ；如果我们此时不退出，继续枚举下一个素数prime[i+1]，对于将要筛掉的合数 <strong>n*prime[i+1]</strong> 由于插入顺序从小到大，则 <strong>prime[i+1]&gt;prime[i]</strong>。由于prime[i]整除于合数n，所以必然合数 <strong>n*prime[i+1]</strong> 还可以被分解为</p>
-<p>$$(\frac{n}{prime[i]}<em>prime[i+1])</em>prime[i]$$</p>
-<p>显然，在上面的分解方式中，我们将要筛掉的合数分解为更小的质因子 <strong>prime[i]</strong> ，这不符合我们对于每一个数被唯一分解的要求，所以我们可在代码中加入一行判断整除关系的代码进行优化。</p>
-<h2 id="2-代码实现："><a href="#2-代码实现：" class="headerlink" title="2.代码实现："></a>2.代码实现：</h2><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdlib></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cmath></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stack></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;set></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token keyword">inline</span> <span class="token keyword">void</span> <span class="token function">read</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token keyword">int</span> f<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">char</span> ch<span class="token operator">=</span><span class="token function">getchar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>ch<span class="token operator">&lt;</span><span class="token string">'0'</span><span class="token operator">||</span>ch<span class="token operator">></span><span class="token string">'9'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>ch<span class="token operator">==</span><span class="token string">'-'</span><span class="token punctuation">)</span>
-            f<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-        ch<span class="token operator">=</span><span class="token function">getchar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>ch<span class="token operator">>=</span><span class="token string">'0'</span><span class="token operator">&amp;&amp;</span>ch<span class="token operator">&lt;=</span><span class="token string">'9'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        x<span class="token operator">=</span><span class="token punctuation">(</span>x<span class="token operator">&lt;&lt;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token punctuation">(</span>x<span class="token operator">&lt;&lt;</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token punctuation">(</span>ch<span class="token operator">^</span><span class="token number">48</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ch<span class="token operator">=</span><span class="token function">getchar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    x<span class="token operator">*</span><span class="token operator">=</span>f<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">bool</span> IsPrime<span class="token punctuation">[</span><span class="token number">100005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> prime<span class="token punctuation">[</span><span class="token number">50005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> n<span class="token punctuation">,</span>top<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token function">memset</span><span class="token punctuation">(</span>IsPrime<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>IsPrime<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">read</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>IsPrime<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            prime<span class="token punctuation">[</span>top<span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">,</span>top<span class="token operator">++</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>top<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">*</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">></span>n<span class="token punctuation">)</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-            IsPrime<span class="token punctuation">[</span>i<span class="token operator">*</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">%</span>prime<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
-                <span class="token keyword">break</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    cout<span class="token operator">&lt;&lt;</span>top<span class="token number">-1</span><span class="token operator">&lt;&lt;</span>endl<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>top<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-        cout<span class="token operator">&lt;&lt;</span>prime<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span><span class="token string">" "</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1.前期准备"></a>1.前期准备</h1><h2 id="1-1-运行环境"><a href="#1-1-运行环境" class="headerlink" title="1.1 运行环境"></a>1.1 运行环境</h2><h3 id="1-1-1-Windows-10-64位-Java-8-64位"><a href="#1-1-1-Windows-10-64位-Java-8-64位" class="headerlink" title="1.1.1 Windows 10 64位 + Java 8 64位"></a>1.1.1 Windows 10 64位 + <strong>Java 8 64位</strong></h3><p>注意Java 8的选择是因为要运行1.12版本，如果是最新版本的MC应该可以支持Java 10</p>
+<p>(如果非64位在运行游戏时内存无法调至2G以上且限制诸多，强烈建议使用64位Java，Java的下载非常麻烦，我使用的是别人打包好的Java 8 Update 202)</p>
+<h3 id="1-1-2-MC启动器"><a href="#1-1-2-MC启动器" class="headerlink" title="1.1.2 MC启动器"></a>1.1.2 MC启动器</h3><p>这里推荐采用github上的一个开源项目<strong>HMCL</strong>，完全依赖Java 系列版本进行开发，界面简洁美观无恶意广告，且支持几乎所有版本的Minecraft并附带相应Mod包管理器。</p>
+<p>最重要的是支持离线模式运行，完美逃避付费困扰。（不过自然没办法加入联机服务器了）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="ing/a.png" alt="软件主页"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://yanxuan.nosdn.127.net/93a51c322b52c34bd7db0ed3b866fcc6.png" alt="版权信息"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -734,7 +674,7 @@
                     </span>
                     <a href="https://wjsoj.github.io" class="b-link-green">WJS的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/12/21/ou-la-shai/" class="b-link-green">欧拉筛理解与实现</a>
+                    <a href="/2020/01/18/minecraft/" class="b-link-green">Minecraft配置合集</a>
                 </p>
             </div>
 
@@ -756,29 +696,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/12/21/markddown-yu-fa-zhi-shi/">
+                <a href="/2020/01/18/minecraft/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Markdown语法知识">
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="Minecraft配置合集">
                         
-                        <span class="card-title">Markdown语法知识</span>
+                        <span class="card-title">Minecraft配置合集</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一.Markdown是什么？ 百度百科：Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。 1.Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用
+                            1.前期准备1.1 运行环境1.1.1 Windows 10 64位 + Java 8 64位注意Java 8的选择是因为要运行1.12版本，如果是最新版本的MC应该可以支持Java 10
+(如果非64位在运行游戏时内存无法调至2G以上且限
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -791,6 +733,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -809,32 +752,34 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/21/bo-ke-yuan-pi-fu-pei-zhi/">
+                <a href="/2019/12/29/vs-code/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="博客园皮肤配置">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="VS code常用插件及编译系统配置">
                         
-                        <span class="card-title">博客园皮肤配置</span>
+                        <span class="card-title">VS code常用插件及编译系统配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.前期准备：1.1 选择主题：SimpleMemory1.2 开通js权限在博客设置界面委婉地向管理员请求就好了，一般都会给予通过的。
-1.3 基本设置在博客“选项”一栏中将默认编辑器改为 Markdown，并在下方“控件显示设置”中选择
+                            常用插件1.Bracket Pair Colorizer如彩虹般顺滑的括号高亮匹配
+2.C/C++基础插件
+3.carbon-now-sh高端代码截图上传工具
+4.Chinese (Simplified) Language Pack for
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-21
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-29
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/blog/" class="post-category" target="_blank">
-                                    blog
+                            <a href="/categories/software/" class="post-category" target="_blank">
+                                    software
                                 </a>
                             
                             
@@ -844,8 +789,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/blog/" target="_blank">
-                        <span class="chip bg-color">blog</span>
+                    <a href="/tags/software/" target="_blank">
+                        <span class="chip bg-color">software</span>
                     </a>
                     
                 </div>
