@@ -111,9 +111,9 @@ $(function () {
         });
 
         /*网站加载逻辑问题 网站加载逻辑问题：图片最后加载 洪卫 shw2018 modify 修改时间：2019.08.14*/
-        // $(document).find('img[data-original]').each(function () {
-        //     $(this).parent().attr("href", $(this).attr("data-original"));
-        // });
+        $(document).find('img[data-original]').each(function () {
+            $(this).parent().attr("href", $(this).attr("data-original"));
+        });
 
         // progress bar init
         const progressElement = window.document.querySelector('.progress-bar');
