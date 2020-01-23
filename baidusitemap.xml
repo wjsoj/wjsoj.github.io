@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://wjsoj.github.io/2019/12/21/bo-ke-yuan-pi-fu-pei-zhi/</loc>
+    <lastmod>2020-01-23</lastmod>
+  </url>  <url>
+    <loc>https://wjsoj.github.io/2019/12/21/markdown/</loc>
+    <lastmod>2020-01-23</lastmod>
+  </url>  <url>
     <loc>https://wjsoj.github.io/2020/01/18/minecraft/</loc>
     <lastmod>2020-01-21</lastmod>
-  </url>  <url>
-    <loc>https://wjsoj.github.io/2019/12/21/markddown-yu-fa-zhi-shi/</loc>
-    <lastmod>2020-01-18</lastmod>
   </url>  <url>
     <loc>https://wjsoj.github.io/2019/12/29/vs-code/</loc>
     <lastmod>2019-12-29</lastmod>
@@ -47,9 +50,6 @@
     <lastmod>2019-12-21</lastmod>
   </url>  <url>
     <loc>https://wjsoj.github.io/2019/12/21/ou-la-shai/</loc>
-    <lastmod>2019-12-21</lastmod>
-  </url>  <url>
-    <loc>https://wjsoj.github.io/2019/12/21/bo-ke-yuan-pi-fu-pei-zhi/</loc>
     <lastmod>2019-12-21</lastmod>
   </url>
 </urlset>
