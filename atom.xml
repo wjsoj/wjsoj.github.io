@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wjsoj.github.io/"/>
-  <updated>2020-01-21T11:22:23.457Z</updated>
+  <updated>2020-01-25T16:27:57.762Z</updated>
   <id>https://wjsoj.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用python自动化完成学校的问卷任务</title>
+    <link href="https://wjsoj.github.io/2020/01/25/wen-juan-xing/"/>
+    <id>https://wjsoj.github.io/2020/01/25/wen-juan-xing/</id>
+    <published>2020-01-25T05:44:03.000Z</published>
+    <updated>2020-01-25T16:27:57.762Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-起因：&quot;&gt;&lt;a href=&quot;#1-起因：&quot; class=&quot;headerlink&quot; title=&quot;1. 起因：&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+      <category term="software" scheme="https://wjsoj.github.io/categories/software/"/>
+    
+    
+      <category term="software" scheme="https://wjsoj.github.io/tags/software/"/>
+    
+  </entry>
   
   <entry>
     <title>Minecraft配置合集</title>
