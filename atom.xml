@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wjsoj.github.io/"/>
-  <updated>2020-01-25T16:29:20.684Z</updated>
+  <updated>2020-02-02T14:01:35.850Z</updated>
   <id>https://wjsoj.github.io/</id>
   
   <author>
@@ -17,11 +17,94 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>开源协议</title>
+    <link href="https://wjsoj.github.io/2020/02/02/kai-yuan-xie-yi/"/>
+    <id>https://wjsoj.github.io/2020/02/02/kai-yuan-xie-yi/</id>
+    <published>2020-02-02T13:22:51.000Z</published>
+    <updated>2020-02-02T14:01:35.850Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-MIT-License&quot;&gt;&lt;a href=&quot;#1-MIT-License&quot; class=&quot;headerlink&quot; title=&quot;1. MIT License&quot;&gt;&lt;/a&gt;1. MIT License&lt;/h1&gt;&lt;p&gt;来自麻省理工的高端许可证：&lt;/p&gt;
+&lt;p&gt;A
+        
+      
+    
+    </summary>
+    
+      <category term="blog" scheme="https://wjsoj.github.io/categories/blog/"/>
+    
+    
+      <category term="blog" scheme="https://wjsoj.github.io/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cmder配置</title>
+    <link href="https://wjsoj.github.io/2020/02/02/cmder/"/>
+    <id>https://wjsoj.github.io/2020/02/02/cmder/</id>
+    <published>2020-02-02T08:22:51.000Z</published>
+    <updated>2020-02-02T13:40:53.460Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-下载及安装&quot;&gt;&lt;a href=&quot;#1-下载及安装&quot; class=&quot;headerlink&quot; title=&quot;1. 下载及安装&quot;&gt;&lt;/a&gt;1. 下载及安装&lt;/h1&gt;&lt;h3 id=&quot;官网链接&quot;&gt;&lt;a href=&quot;#官网链接&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="software" scheme="https://wjsoj.github.io/categories/software/"/>
+    
+    
+      <category term="software" scheme="https://wjsoj.github.io/tags/software/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python及时获取疫情信息</title>
+    <link href="https://wjsoj.github.io/2020/02/02/yi-qing/"/>
+    <id>https://wjsoj.github.io/2020/02/02/yi-qing/</id>
+    <published>2020-02-02T00:12:51.000Z</published>
+    <updated>2020-02-02T08:31:48.038Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-源起&quot;&gt;&lt;a href=&quot;#1-源起&quot; class=&quot;headerlink&quot; title=&quot;1. 源起&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://wjsoj.github.io/categories/python/"/>
+    
+      <category term="life" scheme="https://wjsoj.github.io/categories/python/life/"/>
+    
+    
+      <category term="python" scheme="https://wjsoj.github.io/tags/python/"/>
+    
+      <category term="life" scheme="https://wjsoj.github.io/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
     <title>利用python自动化完成学校的问卷任务</title>
     <link href="https://wjsoj.github.io/2020/01/25/wen-juan-xing/"/>
     <id>https://wjsoj.github.io/2020/01/25/wen-juan-xing/</id>
     <published>2020-01-25T05:44:03.000Z</published>
-    <updated>2020-01-25T16:29:20.684Z</updated>
+    <updated>2020-02-02T06:46:50.800Z</updated>
     
     <summary type="html">
     
@@ -35,10 +118,10 @@
     
     </summary>
     
-      <category term="software" scheme="https://wjsoj.github.io/categories/software/"/>
+      <category term="python" scheme="https://wjsoj.github.io/categories/python/"/>
     
     
-      <category term="software" scheme="https://wjsoj.github.io/tags/software/"/>
+      <category term="python" scheme="https://wjsoj.github.io/tags/python/"/>
     
   </entry>
   
@@ -73,7 +156,7 @@
     <link href="https://wjsoj.github.io/2019/12/29/vs-code/"/>
     <id>https://wjsoj.github.io/2019/12/29/vs-code/</id>
     <published>2019-12-29T05:44:03.000Z</published>
-    <updated>2019-12-29T06:42:13.259Z</updated>
+    <updated>2020-02-02T12:27:24.977Z</updated>
     
     <summary type="html">
     
@@ -455,32 +538,6 @@
     
     
       <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客开源</title>
-    <link href="https://wjsoj.github.io/2019/08/27/blog-open-source/"/>
-    <id>https://wjsoj.github.io/2019/08/27/blog-open-source/</id>
-    <published>2019-08-27T03:41:03.000Z</published>
-    <updated>2019-12-21T15:33:13.365Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;效果演示&quot;&gt;&lt;a href=&quot;#效果演示&quot; class=&quot;headerlink&quot; title=&quot;效果演示&quot;&gt;&lt;/a&gt;效果演示&lt;/h1&gt;&lt;p&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="blog" scheme="https://wjsoj.github.io/categories/blog/"/>
-    
-    
-      <category term="blog" scheme="https://wjsoj.github.io/tags/blog/"/>
     
   </entry>
   
