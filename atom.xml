@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wjsoj.github.io/"/>
-  <updated>2020-02-15T04:39:44.248Z</updated>
+  <updated>2020-02-16T16:19:12.797Z</updated>
   <id>https://wjsoj.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>神秘的37%与自然常数e</title>
+    <link href="https://wjsoj.github.io/2020/02/15/shen-mi-de-e/"/>
+    <id>https://wjsoj.github.io/2020/02/15/shen-mi-de-e/</id>
+    <published>2020-02-15T08:22:51.000Z</published>
+    <updated>2020-02-16T16:19:12.797Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-引言&quot;&gt;&lt;a href=&quot;#1-引言&quot; class=&quot;headerlink&quot; title=&quot;1. 引言&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+      <category term="math" scheme="https://wjsoj.github.io/categories/math/"/>
+    
+    
+      <category term="math" scheme="https://wjsoj.github.io/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《小丑(Joker)》观后感</title>
+    <link href="https://wjsoj.github.io/2020/02/15/xiao-chou-joker/"/>
+    <id>https://wjsoj.github.io/2020/02/15/xiao-chou-joker/</id>
+    <published>2020-02-15T06:22:51.000Z</published>
+    <updated>2020-02-15T08:49:20.179Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-概览&quot;&gt;&lt;a href=&quot;#1-概览&quot; class=&quot;headerlink&quot; title=&quot;1. 概览&quot;&gt;&lt;/a&gt;1. 概览&lt;/h2&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="movie" scheme="https://wjsoj.github.io/categories/movie/"/>
+    
+    
+      <category term="movie" scheme="https://wjsoj.github.io/tags/movie/"/>
+    
+  </entry>
   
   <entry>
     <title>谈李商隐</title>
@@ -100,7 +152,7 @@
     <link href="https://wjsoj.github.io/2020/02/02/yi-qing/"/>
     <id>https://wjsoj.github.io/2020/02/02/yi-qing/</id>
     <published>2020-02-02T00:12:51.000Z</published>
-    <updated>2020-02-02T08:31:48.038Z</updated>
+    <updated>2020-02-15T06:01:41.083Z</updated>
     
     <summary type="html">
     
@@ -486,58 +538,6 @@
     
     
       <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客园皮肤配置</title>
-    <link href="https://wjsoj.github.io/2019/12/21/bo-ke-yuan-pi-fu-pei-zhi/"/>
-    <id>https://wjsoj.github.io/2019/12/21/bo-ke-yuan-pi-fu-pei-zhi/</id>
-    <published>2019-12-21T03:42:03.000Z</published>
-    <updated>2020-01-23T09:23:23.580Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1-前期准备：&quot;&gt;&lt;a href=&quot;#1-前期准备：&quot; class=&quot;headerlink&quot; title=&quot;1.前期准备：&quot;&gt;&lt;/a&gt;1.前期准备：&lt;/h2&gt;&lt;h3 id=&quot;1-1-选择主题：SimpleMemory&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="blog" scheme="https://wjsoj.github.io/categories/blog/"/>
-    
-    
-      <category term="blog" scheme="https://wjsoj.github.io/tags/blog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://wjsoj.github.io/2019/12/21/hello-world/"/>
-    <id>https://wjsoj.github.io/2019/12/21/hello-world/</id>
-    <published>2019-12-21T03:41:03.000Z</published>
-    <updated>2019-12-22T07:33:08.182Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="blog" scheme="https://wjsoj.github.io/categories/blog/"/>
-    
-    
-      <category term="blog" scheme="https://wjsoj.github.io/tags/blog/"/>
     
   </entry>
   
