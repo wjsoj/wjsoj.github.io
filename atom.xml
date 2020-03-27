@@ -43,6 +43,32 @@
   </entry>
   
   <entry>
+    <title>神秘的37%与自然常数e</title>
+    <link href="https://wjsoj.github.io/2020/02/15/shen-mi-de-e/"/>
+    <id>https://wjsoj.github.io/2020/02/15/shen-mi-de-e/</id>
+    <published>2020-02-15T08:22:51.000Z</published>
+    <updated>2020-03-27T16:06:35.877Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-引言&quot;&gt;&lt;a href=&quot;#1-引言&quot; class=&quot;headerlink&quot; title=&quot;1. 引言&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+      <category term="math" scheme="https://wjsoj.github.io/categories/math/"/>
+    
+    
+      <category term="math" scheme="https://wjsoj.github.io/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《小丑(Joker)》观后感</title>
     <link href="https://wjsoj.github.io/2020/02/15/xiao-chou-joker/"/>
     <id>https://wjsoj.github.io/2020/02/15/xiao-chou-joker/</id>
@@ -512,32 +538,6 @@
     
     
       <category term="software" scheme="https://wjsoj.github.io/tags/software/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>欧拉筛理解与实现</title>
-    <link href="https://wjsoj.github.io/2019/12/21/ou-la-shai/"/>
-    <id>https://wjsoj.github.io/2019/12/21/ou-la-shai/</id>
-    <published>2019-12-21T03:43:03.000Z</published>
-    <updated>2019-12-21T15:04:24.192Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;在传统的素数筛法中，我们使用了对于每一个数n，在 1~(√n)
-        
-      
-    
-    </summary>
-    
-      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
-    
-    
-      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
     
   </entry>
   
