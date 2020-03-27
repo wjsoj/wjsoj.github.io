@@ -615,7 +615,8 @@
                 <h1 id="1-起因："><a href="#1-起因：" class="headerlink" title="1. 起因："></a>1. 起因：</h1><p>由于近期新型冠状病毒（2019-nCoV）肆虐，学校要求每天早9点之前提交问卷星上发布的一个问卷，然而对于我这样一个不能早起的人来说过于困难。于是我想有没有一种办法让程序代替我完成这一项工作呢？</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/wjsoj/pic/img/Snipaste_2020-01-25_23-43-57.png" alt="问卷星"></p>
 <h1 id="2-艰辛的实践："><a href="#2-艰辛的实践：" class="headerlink" title="2. 艰辛的实践："></a>2. 艰辛的实践：</h1><h2 id="2-1-准备工作"><a href="#2-1-准备工作" class="headerlink" title="2.1 准备工作"></a>2.1 准备工作</h2><h3 id="2-1-1-Selenium"><a href="#2-1-1-Selenium" class="headerlink" title="2.1.1 Selenium"></a>2.1.1 Selenium</h3><p>由于先前没有接触过python自动化方面的内容，只是对语法有基本的了解，对于Socket接口之类的什么都不懂，于是果断开始在网上找方法，但每一个都看不懂。最后我只好从基础开始学起，认识了一个叫做<strong>Selenium</strong>的自动化库，于是果断：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">pip <span class="token function">install</span> selenium<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">pip install selenium
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这里我使用的是<code>python 3.7.2 (64 bit)</code>，内置的 pip 已提前升级至最新版。</p>
 <h3 id="2-1-2-ChromeDriver"><a href="#2-1-2-ChromeDriver" class="headerlink" title="2.1.2 ChromeDriver"></a>2.1.2 ChromeDriver</h3><p>Selenium是依赖各个浏览器进行工作的，而开启浏览器就必须手动指定路径，为了让代码能够跨主机进行运行，只好麻烦用户提前做准备了。于是诞生了针对Google Chrome浏览器进行适配的<code>ChromeDriver</code>，有了这个小程序，就可以更加流畅的调用·WebDriver·类进行各类操作。</p>
 <h4 id="ChromeDriver官方下载地址（淘宝镜像）"><a href="#ChromeDriver官方下载地址（淘宝镜像）" class="headerlink" title="ChromeDriver官方下载地址（淘宝镜像）"></a><a href="http://npm.taobao.org/mirrors/chromedriver/" target="_blank" rel="noopener">ChromeDriver<del>官方</del>下载地址（淘宝镜像）</a></h4><blockquote>
@@ -626,72 +627,73 @@
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/wjsoj/pic/img/20200126000225.png" alt="对应Driver版本"></p>
 <p><strong>下载时选择<code>win32.exe</code>，把下载好后的的exe解压到python的安装目录下（我的是<code>C:\Program Files\Python37\Scripts</code>）或者手动将Driver添加到path环境变量也可。</strong></p>
 <h3 id="2-1-3-VS-code"><a href="#2-1-3-VS-code" class="headerlink" title="2.1.3 VS code"></a>2.1.3 VS code</h3><p>之所以用VS code是因为VS的代码补全能力相当的强大，在接下来的编写过程中我们会遇到各种各样特别长的接口/函数名称，请做好准备。</p>
-<h2 id="2-2-开始编写"><a href="#2-2-开始编写" class="headerlink" title="2.2 开始编写"></a>2.2 开始编写</h2><h4 id="想说的全写在注释里了。"><a href="#想说的全写在注释里了。" class="headerlink" title="想说的全写在注释里了。"></a>想说的全写在注释里了。</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 运行环境：</span>
-<span class="token comment" spellcheck="true"># 1.Windows 10 64 位</span>
-<span class="token comment" spellcheck="true"># 2.python 3.7.2 (64bit) + selenium自动化库</span>
-<span class="token comment" spellcheck="true"># 3.Chrome 79.0.3945.130 (64bit)</span>
-<span class="token comment" spellcheck="true"># 4.重点：ChromeDriver对应版本</span>
-<span class="token comment" spellcheck="true"># 5.编辑器：VS Code（极不情愿地使用了）</span>
+<h2 id="2-2-开始编写"><a href="#2-2-开始编写" class="headerlink" title="2.2 开始编写"></a>2.2 开始编写</h2><h4 id="想说的全写在注释里了。"><a href="#想说的全写在注释里了。" class="headerlink" title="想说的全写在注释里了。"></a>想说的全写在注释里了。</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 运行环境：
+# 1.Windows 10 64 位
+# 2.python 3.7.2 (64bit) + selenium自动化库
+# 3.Chrome 79.0.3945.130 (64bit)
+# 4.重点：ChromeDriver对应版本
+# 5.编辑器：VS Code（极不情愿地使用了）
 
-<span class="token keyword">from</span> selenium <span class="token keyword">import</span> webdriver
+from selenium import webdriver
 
-<span class="token comment" spellcheck="true"># 启动浏览器</span>
-driver <span class="token operator">=</span> webdriver<span class="token punctuation">.</span>Chrome<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 指定url，替换数字</span>
-driver<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"https://www.wjx.cn/jq/数字.aspx"</span><span class="token punctuation">)</span>
+# 启动浏览器
+driver = webdriver.Chrome()
+# 指定url，替换数字
+driver.get("https://www.wjx.cn/jq/数字.aspx")
 
-<span class="token comment" spellcheck="true"># 获取所有问题的标签，存到一个list里边</span>
-answers <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_elements_by_css_selector<span class="token punctuation">(</span><span class="token string">'.div_question'</span><span class="token punctuation">)</span>
+# 获取所有问题的标签，存到一个list里边
+answers = driver.find_elements_by_css_selector('.div_question')
 
-<span class="token comment" spellcheck="true"># 问题1：日期（iframe控件）</span>
-<span class="token comment" spellcheck="true"># 点击调用控件</span>
-a <span class="token operator">=</span> answers<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">'textarea'</span><span class="token punctuation">)</span>
-a<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 等待页面响应（好像不加也没关系）</span>
-driver<span class="token punctuation">.</span>implicitly_wait<span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 切换到iframe控件模式</span>
-driver<span class="token punctuation">.</span>switch_to_frame<span class="token punctuation">(</span><span class="token string">"__calendarIframe"</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 找到“今天”的标签</span>
-a1 <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_id<span class="token punctuation">(</span><span class="token string">'selectTodayButton'</span><span class="token punctuation">)</span>
-a1<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 点击</span>
-<span class="token comment" spellcheck="true"># 切换回主目录模式</span>
-driver<span class="token punctuation">.</span>switch_to_default_content<span class="token punctuation">(</span><span class="token punctuation">)</span>
+# 问题1：日期（iframe控件）
+# 点击调用控件
+a = answers[0].find_element_by_css_selector('textarea')
+a.click()
+# 等待页面响应（好像不加也没关系）
+driver.implicitly_wait(500)
+# 切换到iframe控件模式
+driver.switch_to_frame("__calendarIframe")
+# 找到“今天”的标签
+a1 = driver.find_element_by_id('selectTodayButton')
+a1.click() # 点击
+# 切换回主目录模式
+driver.switch_to_default_content()
 
 
-<span class="token comment" spellcheck="true"># 问题2：填空</span>
-a <span class="token operator">=</span> answers<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">'textarea'</span><span class="token punctuation">)</span>
-a<span class="token punctuation">.</span>send_keys<span class="token punctuation">(</span><span class="token string">'想要填进去的文本'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 注意一定要以UTF-8形式保存</span>
+# 问题2：填空
+a = answers[1].find_element_by_css_selector('textarea')
+a.send_keys('想要填进去的文本') # 注意一定要以UTF-8形式保存
 
-<span class="token comment" spellcheck="true"># 问题3：单选框</span>
-<span class="token comment" spellcheck="true"># 找到对应选项</span>
-a <span class="token operator">=</span> answers<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span>find_elements_by_css_selector<span class="token punctuation">(</span><span class="token string">'option'</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 中括号的数字对应不同选项，1=第一个选项，依次递增</span>
-c <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>
-c<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+# 问题3：单选框
+# 找到对应选项
+a = answers[2].find_elements_by_css_selector('option')
+# 中括号的数字对应不同选项，1=第一个选项，依次递增
+c = a[4]
+c.click()
 
-<span class="token comment" spellcheck="true"># 如果这一页的已经填完，浏览器找不到标签，让浏览器滚动到某一个标签</span>
-<span class="token comment" spellcheck="true"># 括号内逗号后是标签的名称</span>
-driver<span class="token punctuation">.</span>execute_script<span class="token punctuation">(</span><span class="token string">"arguments[0].scrollIntoView();"</span><span class="token punctuation">,</span>YourTag<span class="token punctuation">)</span>
+# 如果这一页的已经填完，浏览器找不到标签，让浏览器滚动到某一个标签
+# 括号内逗号后是标签的名称
+driver.execute_script("arguments[0].scrollIntoView();",YourTag)
 
-<span class="token comment" spellcheck="true"># 问题4：选择</span>
-<span class="token comment" spellcheck="true"># li标签是选择题的标志</span>
-a <span class="token operator">=</span> answers<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span>find_elements_by_css_selector<span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 下一行数字 0=选项1 1=选项2，递推</span>
-c <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-c<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+# 问题4：选择
+# li标签是选择题的标志
+a = answers[4].find_elements_by_css_selector('li')
+# 下一行数字 0=选项1 1=选项2，递推
+c = a[0]
+c.click()
 
-<span class="token comment" spellcheck="true"># 自动点击提交</span>
-sub <span class="token operator">=</span> driver<span class="token punctuation">.</span>find_element_by_css_selector<span class="token punctuation">(</span><span class="token string">'#submit_button'</span><span class="token punctuation">)</span>
-sub<span class="token punctuation">.</span>click<span class="token punctuation">(</span><span class="token punctuation">)</span>
+# 自动点击提交
+sub = driver.find_element_by_css_selector('#submit_button')
+sub.click()
 
-<span class="token comment" spellcheck="true"># 退出浏览器</span>
-driver<span class="token punctuation">.</span>quit<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# 退出浏览器
+driver.quit()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="那些年遇到的坑："><a href="#那些年遇到的坑：" class="headerlink" title="那些年遇到的坑："></a>那些年遇到的坑：</h4><ol>
 <li><code>iframe</code>控件根本就不能用常规方法调用，为这个我抓狂了一个小时</li>
 <li>找到元素并不一定要一层一层地找，只要这个元素足够唯一，可以依据css、id、class等直接跨层查找（这里的层是html源码里的层次）</li>
 <li>这些元素名需要一点一点在开发者模式里找，学会了之后可以更加简洁，甚至一个for循环解决不同题型</li>
-<li>如果要产生许多许多的问卷可以引入random库，然后嘿嘿<del>~</del></li>
-<li>要留意一些存在逻辑关联的题型，在本程序做出选择后html源码会立即变化，然后就等着报错吧<del>~</del></li>
+<li>如果要产生许多许多的问卷可以引入random库，然后嘿嘿~~~</li>
+<li>要留意一些存在逻辑关联的题型，在本程序做出选择后html源码会立即变化，然后就等着报错吧~~~</li>
 <li>问卷星已经低级到非常容易搞定了，反爬措施几乎为0，加油吧！</li>
 </ol>
 <h1 id="3-结语"><a href="#3-结语" class="headerlink" title="3. 结语"></a>3. 结语</h1><p>在查找源码的过程中发现许多人做这方面的研究是为了应付研究生项目，数量庞大的问卷实在不好完成，又不肯总是麻烦别人。我认为这对于一个人的组织能力也是种挑战，应当坦然接受，迎难而上，求爷爷告奶奶也要把问卷发完，保证调查的真实性。而不是用随机的方式凑数。</p>
@@ -1027,7 +1029,7 @@ driver<span class="token punctuation">.</span>quit<span class="token punctuation
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">36.7k</span> 字
+                <span class="white-color">27.9k</span> 字
             
 
             
@@ -1223,5 +1225,21 @@ $(function () {
             </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>

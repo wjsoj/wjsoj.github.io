@@ -591,14 +591,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        860
+                        623
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        2 分
                     </div>
                     
                 
@@ -616,63 +616,66 @@
 <h3 id="样例"><a href="#样例" class="headerlink" title="样例"></a><strong>样例</strong></h3><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><pre><code>10 3
 2 1
 1 2
-2 1</code></pre><h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><pre><code>19</code></pre><h3 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a><strong>主要思路</strong></h3><p>首先，此题是一道dp题，但在设计方程之前，现想这样一个问题：时间怎么存？为了解决这个问题，我专门开了一个time二维数组来记录时间。其中<strong>time[i][j]表示第i个课题完成j篇论文所用的时间</strong>。只需在读入时循环枚举j，计算出来就好（建议不要用pow函数，我是手打的快速幂）。有了存储时间的方法，dp方程便不难设计：用dp[i]表示写i篇论文所用的最小时间，只需循环m个课题，再枚举当前计算的i与此时写的论文数j。<br><strong>转移过程如下：</strong><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMwMjA0NjEwNTY4?x-oss-process=image/format,png" alt=""></p>
-<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a><strong>代码如下</strong></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//请看注释</span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cmath></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdlib></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;ctime></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;map></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stack></span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> int long long</span><span class="token comment" spellcheck="true">//呵呵</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> INF 0x7f</span><span class="token comment" spellcheck="true">//呵呵</span>
+2 1
+</code></pre><h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><pre><code>19
+</code></pre><h3 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a><strong>主要思路</strong></h3><p>首先，此题是一道dp题，但在设计方程之前，现想这样一个问题：时间怎么存？为了解决这个问题，我专门开了一个time二维数组来记录时间。其中<strong>time[i][j]表示第i个课题完成j篇论文所用的时间</strong>。只需在读入时循环枚举j，计算出来就好（建议不要用pow函数，我是手打的快速幂）。有了存储时间的方法，dp方程便不难设计：用dp[i]表示写i篇论文所用的最小时间，只需循环m个课题，再枚举当前计算的i与此时写的论文数j。<br><strong>转移过程如下：</strong><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMwMjA0NjEwNTY4?x-oss-process=image/format,png" alt=""></p>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a><strong>代码如下</strong></h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">//请看注释
+#include <iostream>
+#include <cstdio>
+#include <vector>
+#include <queue>
+#include <cmath>
+#include <algorithm>
+#include <cstdlib>
+#include <ctime>
+#include <map>
+#include <stack>
+#include <cstring>
+using namespace std;
+#define int long long//呵呵
+#define INF 0x7f//呵呵
 
-<span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span>
-<span class="token keyword">int</span> dp<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> tim<span class="token punctuation">[</span><span class="token number">1005</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+int n,m;
+int dp[10005];
+int tim[1005][1005];
 
-<span class="token keyword">int</span> <span class="token function">kuai_su_mi</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span><span class="token keyword">int</span> m<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//呵呵快速幂</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> ans<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>m<span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>m<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span>
-            ans<span class="token operator">*</span><span class="token operator">=</span>n<span class="token punctuation">;</span>
-        n<span class="token operator">*</span><span class="token operator">=</span>n<span class="token punctuation">;</span>
-        m<span class="token operator">>>=</span><span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+int kuai_su_mi(int n,int m)//呵呵快速幂
+{
+    int ans=1;
+    while(m)
+    {
+        if(m&1)
+            ans*=n;
+        n*=n;
+        m>>=1;
+    }
+    return ans;
+}
 
-<span class="token macro property">#<span class="token directive keyword">undef</span> int</span><span class="token comment" spellcheck="true">//呵呵</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//呵呵</span>
-<span class="token macro property">#<span class="token directive keyword">define</span> int long long</span><span class="token comment" spellcheck="true">//呵呵</span>
-<span class="token punctuation">{</span>
-    ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//呵呵</span>
-    cin<span class="token operator">>></span>n<span class="token operator">>></span>m<span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">int</span> a<span class="token punctuation">,</span>b<span class="token punctuation">;</span>
-        cin<span class="token operator">>></span>a<span class="token operator">>></span>b<span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//论文篇数不超过n</span>
-            tim<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token operator">*</span><span class="token function">kuai_su_mi</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//预处理做第i个课题中的j篇论文的时间</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">memset</span><span class="token punctuation">(</span>dp<span class="token punctuation">,</span>INF<span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>dp<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//呵呵</span>
-    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//做0篇论文不需要时间</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>k<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//当前选到第k个课题</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>n<span class="token punctuation">;</span>i<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//该算dp[i]了，注意正着枚举会WA</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//第k个课题做了j篇论文</span>
-                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token operator">-</span>j<span class="token punctuation">]</span><span class="token operator">+</span>tim<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            <span class="token comment" spellcheck="true">//做上一个课题时的论文数（i-j）+当前耗费的时间（time[k][j]）</span>
-    cout<span class="token operator">&lt;&lt;</span>dp<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+#undef int//呵呵
+int main(int argc, char const *argv[])//呵呵
+#define int long long//呵呵
+{
+    ios::sync_with_stdio(false);//呵呵
+    cin>>n>>m;
+    for(int i=1;i<=m;i++)
+    {
+        int a,b;
+        cin>>a>>b;
+        for(int j=1;j<=n;j++)//论文篇数不超过n
+            tim[i][j]=a*kuai_su_mi(j,b);//预处理做第i个课题中的j篇论文的时间
+    }
+    memset(dp,INF,sizeof(dp));//呵呵
+    dp[0]=0;//做0篇论文不需要时间
+    for(int k=1;k<=m;k++)//当前选到第k个课题
+        for(int i=n;i>0;i--)//该算dp[i]了，注意正着枚举会WA
+            for(int j=1;j<=i;j++)//第k个课题做了j篇论文
+                dp[i]=min(dp[i],dp[i-j]+tim[k][j]);
+                            //做上一个课题时的论文数（i-j）+当前耗费的时间（time[k][j]）
+    cout<<dp[n]<<endl;//输出
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -991,7 +994,7 @@
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">36.7k</span> 字
+                <span class="white-color">27.9k</span> 字
             
 
             
@@ -1187,5 +1190,21 @@ $(function () {
             </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>

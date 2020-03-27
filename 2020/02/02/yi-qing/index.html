@@ -602,7 +602,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        3.5k
+                        3.4k
                     </div>
                     
 
@@ -639,14 +639,16 @@
 <li><p>这几天宅在家里刚好没事，就顺带研究了一下python，想试试能不能把数据获取到本地进行更直观的处理展示，于是就有了这篇博文。</p>
 </li>
 </ol>
-<h1 id="2-用到的一些知识"><a href="#2-用到的一些知识" class="headerlink" title="2. 用到的一些知识"></a>2. 用到的一些知识</h1><h2 id="2-1-python网络处理必备库——requests"><a href="#2-1-python网络处理必备库——requests" class="headerlink" title="2.1 python网络处理必备库——requests"></a>2.1 python网络处理必备库——requests</h2><pre class="line-numbers language-bash"><code class="language-bash">pip <span class="token function">install</span> requests<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="2-用到的一些知识"><a href="#2-用到的一些知识" class="headerlink" title="2. 用到的一些知识"></a>2. 用到的一些知识</h1><h2 id="2-1-python网络处理必备库——requests"><a href="#2-1-python网络处理必备库——requests" class="headerlink" title="2.1 python网络处理必备库——requests"></a>2.1 python网络处理必备库——requests</h2><pre class="line-numbers language-lang-bash"><code class="language-lang-bash">pip install requests
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="2-2-使用python下载文件"><a href="#2-2-使用python下载文件" class="headerlink" title="2.2 使用python下载文件"></a>2.2 使用python下载文件</h2><p><strong>代码如下：</strong>（替换url、filename即可）</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
-url <span class="token operator">=</span> <span class="token string">'http://news.163.com/special/epidemic/'</span>
-down <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-filename <span class="token operator">=</span> <span class="token string">"data.txt"</span>
-<span class="token keyword">with</span> open<span class="token punctuation">(</span>filename<span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> func<span class="token punctuation">:</span>
-    func<span class="token punctuation">.</span>write<span class="token punctuation">(</span>down<span class="token punctuation">.</span>content<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">import requests
+url = 'http://news.163.com/special/epidemic/'
+down = requests.get(url)
+filename = "data.txt"
+with open(filename, "wb") as func:
+    func.write(down.content)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-3-python字符串处理"><a href="#2-3-python字符串处理" class="headerlink" title="2.3 python字符串处理"></a>2.3 python字符串处理</h2><h3 id="2-3-1-字符串查找"><a href="#2-3-1-字符串查找" class="headerlink" title="2.3.1 字符串查找"></a>2.3.1 字符串查找</h3><p>使用<code>str.find(s,pos,end)</code>函数，<strong>s</strong>为要寻找的字符/字符串，返回当前字符串中第一个出现<code>s</code>的位置（而且返回的是首部，即<strong>s</strong>中第一个字符的位置）；<code>pos</code>参数指定从字符串的哪一个位置起开始寻找，<code>end</code>参数指定结束查找的位置，<code>pos</code>与<code>end</code>的关系是 <strong>前闭后开</strong>。</p>
 <p>如果找不到对应的字符/字符串，<code>.find()</code>函数返回值为<code>-1</code></p>
 <h3 id="2-3-2-字符串替换"><a href="#2-3-2-字符串替换" class="headerlink" title="2.3.2 字符串替换"></a>2.3.2 字符串替换</h3><p><code>str.replace(a,b,cnt)</code>（a、b均为字符串），意为将字符串中的<code>cnt</code>个数个<code>a</code>替换为<code>b</code></p>
@@ -654,295 +656,311 @@ filename <span class="token operator">=</span> <span class="token string">"data.
 <h3 id="2-3-4-字符串合并"><a href="#2-3-4-字符串合并" class="headerlink" title="2.3.4 字符串合并"></a>2.3.4 字符串合并</h3><p>使用<code>+（加号）</code>即可</p>
 <h3 id="2-3-5-字符串切片"><a href="#2-3-5-字符串切片" class="headerlink" title="2.3.5 字符串切片"></a>2.3.5 字符串切片</h3><p><code>str[a:b]</code>指a到b <strong>前闭后开</strong></p>
 <h2 id="2-4-使用python读取文件"><a href="#2-4-使用python读取文件" class="headerlink" title="2.4 使用python读取文件"></a>2.4 使用python读取文件</h2><p><strong>代码如下</strong>：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> func<span class="token punctuation">:</span>
-    data <span class="token operator">=</span> func<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 此方式为全部读取并存储在一个字符串中</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">with open("data.txt","r") as func:
+    data = func.read()
+# 此方式为全部读取并存储在一个字符串中
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="2-5-删除文件"><a href="#2-5-删除文件" class="headerlink" title="2.5 删除文件"></a>2.5 删除文件</h2><p><strong>代码如下</strong>：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> os
-filename <span class="token operator">=</span> <span class="token string">'data.txt'</span>
-os<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="2-6-清屏"><a href="#2-6-清屏" class="headerlink" title="2.6 清屏"></a>2.6 清屏</h2><pre class="line-numbers language-python"><code class="language-python">os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'cls'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">import os
+filename = 'data.txt'
+os.remove(filename)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-6-清屏"><a href="#2-6-清屏" class="headerlink" title="2.6 清屏"></a>2.6 清屏</h2><pre class="line-numbers language-lang-python"><code class="language-lang-python">os.system('cls')
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="2-7-绘制图表"><a href="#2-7-绘制图表" class="headerlink" title="2.7 绘制图表"></a>2.7 绘制图表</h2><h3 id="2-7-1-准备工作"><a href="#2-7-1-准备工作" class="headerlink" title="2.7.1 准备工作"></a>2.7.1 准备工作</h3><p>使用的图形库必须要安装：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">pip <span class="token function">install</span> matplotlib<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">pip install matplotlib
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>文件头这样引用：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> matplotlib
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">import matplotlib
+import matplotlib.pyplot as plt
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="2-7-2-解决中文乱码（输出小矩形）问题"><a href="#2-7-2-解决中文乱码（输出小矩形）问题" class="headerlink" title="2.7.2 解决中文乱码（输出小矩形）问题"></a>2.7.2 解决中文乱码（输出小矩形）问题</h3><p>将下面一行代码加在绘图程序执行前：</p>
-<pre class="line-numbers language-python"><code class="language-python">plt<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.sans-serif'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'SimHei'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="2-7-3-绘制线条的不同参数"><a href="#2-7-3-绘制线条的不同参数" class="headerlink" title="2.7.3 绘制线条的不同参数"></a>2.7.3 绘制线条的不同参数</h3><pre class="line-numbers language-python"><code class="language-python">plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>confirm<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'确诊'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'red'</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span>markerfacecolor<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>suspect<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'疑似'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0.94</span><span class="token punctuation">,</span><span class="token number">0.88</span><span class="token punctuation">,</span><span class="token number">0.04</span><span class="token punctuation">)</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span>markerfacecolor<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>heal<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'治愈'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'green'</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span>markerfacecolor<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>dead<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'死亡'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'black'</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span>markerfacecolor<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 参数分别为：</span>
-<span class="token comment" spellcheck="true"># 1.横坐标（一个list）</span>
-<span class="token comment" spellcheck="true"># 2.纵坐标（一个list）</span>
-<span class="token comment" spellcheck="true"># 3.图例（label）</span>
-<span class="token comment" spellcheck="true"># 4.线宽</span>
-<span class="token comment" spellcheck="true"># 5.线条颜色</span>
-<span class="token comment" spellcheck="true"># 6.点型（如字母'o'为实心圈，小数点'.'为小点）</span>
-<span class="token comment" spellcheck="true"># 7.点的颜色（强行指定数值为RGB换算为0~1之间的一个实数）</span>
-<span class="token comment" spellcheck="true"># 8.点的大小</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-7-4-其他参数"><a href="#2-7-4-其他参数" class="headerlink" title="2.7.4 其他参数"></a>2.7.4 其他参数</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 横轴显示的汉字</span>
-plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'日期'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">12</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 纵轴显示的汉字</span>
-plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'人数'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">12</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 图表题目</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'疫情数据图'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">22</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">plt.rcParams['font.sans-serif'] = ['SimHei']
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2-7-3-绘制线条的不同参数"><a href="#2-7-3-绘制线条的不同参数" class="headerlink" title="2.7.3 绘制线条的不同参数"></a>2.7.3 绘制线条的不同参数</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python">plt.plot(x,confirm,label='确诊',linewidth=2,color='red',marker='o',markerfacecolor='blue',markersize=6)
+plt.plot(x,suspect,label='疑似',linewidth=2,color=(0.94,0.88,0.04),marker='o',markerfacecolor='blue',markersize=6)
+plt.plot(x,heal,label='治愈',linewidth=2,color='green',marker='o',markerfacecolor='blue',markersize=6)
+plt.plot(x,dead,label='死亡',linewidth=1,color='black',marker='o',markerfacecolor='blue',markersize=6)
+# 参数分别为：
+# 1.横坐标（一个list）
+# 2.纵坐标（一个list）
+# 3.图例（label）
+# 4.线宽
+# 5.线条颜色
+# 6.点型（如字母'o'为实心圈，小数点'.'为小点）
+# 7.点的颜色（强行指定数值为RGB换算为0~1之间的一个实数）
+# 8.点的大小
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-7-4-其他参数"><a href="#2-7-4-其他参数" class="headerlink" title="2.7.4 其他参数"></a>2.7.4 其他参数</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 横轴显示的汉字
+plt.xlabel('日期',fontsize=12)
+# 纵轴显示的汉字
+plt.ylabel('人数',fontsize=12)
+# 图表题目
+plt.title('疫情数据图',fontsize=22)
 
-<span class="token comment" spellcheck="true"># 坐标轴</span>
-plt<span class="token punctuation">.</span>tick_params<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token string">'both'</span><span class="token punctuation">,</span> which<span class="token operator">=</span><span class="token string">'major'</span><span class="token punctuation">,</span> labelsize<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 开启图例</span>
-plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-7-5-设置图像大小"><a href="#2-7-5-设置图像大小" class="headerlink" title="2.7.5 设置图像大小"></a>2.7.5 设置图像大小</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 长宽数值</span>
-plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="2-7-6-绘制"><a href="#2-7-6-绘制" class="headerlink" title="2.7.6 绘制"></a>2.7.6 绘制</h3><pre class="line-numbers language-python"><code class="language-python">plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="2-8-list操作"><a href="#2-8-list操作" class="headerlink" title="2.8 list操作"></a>2.8 list操作</h2><h3 id="2-8-1-list遍历"><a href="#2-8-1-list遍历" class="headerlink" title="2.8.1 list遍历"></a>2.8.1 list遍历</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 方法一</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> list<span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 方法二</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true">#或者直接range(len(list))</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 方法三（逆序）</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>list<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# 坐标轴
+plt.tick_params(axis='both', which='major', labelsize=10)
+# 开启图例
+plt.legend()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-7-5-设置图像大小"><a href="#2-7-5-设置图像大小" class="headerlink" title="2.7.5 设置图像大小"></a>2.7.5 设置图像大小</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 长宽数值
+plt.figure(figsize=(16,9))
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="2-7-6-绘制"><a href="#2-7-6-绘制" class="headerlink" title="2.7.6 绘制"></a>2.7.6 绘制</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python">plt.show()
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="2-8-list操作"><a href="#2-8-list操作" class="headerlink" title="2.8 list操作"></a>2.8 list操作</h2><h3 id="2-8-1-list遍历"><a href="#2-8-1-list遍历" class="headerlink" title="2.8.1 list遍历"></a>2.8.1 list遍历</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 方法一
+for i in list:
+    print(i)
+# 方法二
+for i in range(0,len(list)): #或者直接range(len(list))
+    print(list[i])
+# 方法三（逆序）
+for i in range(len(list)-1,-1,-1):
+    print(list[i])
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>永远要记住：<strong>前闭后开</strong>！！！</p>
 </blockquote>
-<h3 id="2-8-2-元素插入"><a href="#2-8-2-元素插入" class="headerlink" title="2.8.2 元素插入"></a>2.8.2 元素插入</h3><h4 id="2-8-2-1-尾部插入"><a href="#2-8-2-1-尾部插入" class="headerlink" title="2.8.2.1 尾部插入"></a>2.8.2.1 尾部插入</h4><pre class="line-numbers language-python"><code class="language-python">list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>element<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="2-8-2-2-指定位置插入"><a href="#2-8-2-2-指定位置插入" class="headerlink" title="2.8.2.2 指定位置插入"></a>2.8.2.2 指定位置插入</h4><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 正序：</span>
-list<span class="token punctuation">.</span>insert<span class="token punctuation">(</span>pos<span class="token punctuation">,</span>element<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 逆序：</span>
-list<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token operator">-</span>pop<span class="token punctuation">,</span>element<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-8-2-元素插入"><a href="#2-8-2-元素插入" class="headerlink" title="2.8.2 元素插入"></a>2.8.2 元素插入</h3><h4 id="2-8-2-1-尾部插入"><a href="#2-8-2-1-尾部插入" class="headerlink" title="2.8.2.1 尾部插入"></a>2.8.2.1 尾部插入</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python">list.append(element)
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="2-8-2-2-指定位置插入"><a href="#2-8-2-2-指定位置插入" class="headerlink" title="2.8.2.2 指定位置插入"></a>2.8.2.2 指定位置插入</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python"># 正序：
+list.insert(pos,element)
+# 逆序：
+list.insert(-pop,element)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p><code>list</code>在使用<code>.insert()</code>方法插入元素时会把所有元素顺序或逆序移动</p>
 </blockquote>
 <h1 id="3-代码"><a href="#3-代码" class="headerlink" title="3. 代码"></a>3. 代码</h1><h2 id="3-1-第一个正式版本"><a href="#3-1-第一个正式版本" class="headerlink" title="3.1 第一个正式版本"></a>3.1 第一个正式版本</h2><p>基于html源码，只做基本的数据信息反馈：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
-<span class="token keyword">import</span> os
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">import requests
+import os
 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"正在更新数据......"</span><span class="token punctuation">)</span>
-url <span class="token operator">=</span> <span class="token string">'http://news.163.com/special/epidemic/'</span>
-down <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> func<span class="token punctuation">:</span>
-    func<span class="token punctuation">.</span>write<span class="token punctuation">(</span>down<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+print("正在更新数据......")
+url = 'http://news.163.com/special/epidemic/'
+down = requests.get(url)
+with open("data.txt", "wb") as func:
+    func.write(down.content)
 
-<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> func<span class="token punctuation">:</span>
-    data <span class="token operator">=</span> func<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+with open("data.txt","r") as func:
+    data = func.read()
 
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    city_start <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;strong>'</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> city_start <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
-        <span class="token keyword">break</span>
-    city_end <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;/strong>'</span><span class="token punctuation">)</span>
-    city <span class="token operator">=</span> data<span class="token punctuation">[</span>city_start<span class="token operator">+</span><span class="token number">8</span><span class="token punctuation">:</span>city_end<span class="token punctuation">]</span>
-    line_end <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;/li>'</span><span class="token punctuation">,</span>city_end<span class="token punctuation">)</span>
-    info <span class="token operator">=</span> data<span class="token punctuation">[</span>city_end<span class="token operator">+</span><span class="token number">9</span><span class="token punctuation">:</span>line_end<span class="token punctuation">]</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>city <span class="token operator">+</span> <span class="token string">'\t\t'</span> <span class="token operator">+</span> info<span class="token punctuation">)</span>
-    data <span class="token operator">=</span> data<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'&lt;strong>'</span><span class="token punctuation">,</span><span class="token string">'used'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
-    data <span class="token operator">=</span> data<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'&lt;/strong>'</span><span class="token punctuation">,</span><span class="token string">'used'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+while True:
+    city_start = data.find('<strong>')
+    if city_start == -1:
+        break
+    city_end = data.find('</strong>')
+    city = data[city_start+8:city_end]
+    line_end = data.find('</li>',city_end)
+    info = data[city_end+9:line_end]
+    print(city + '\t\t' + info)
+    data = data.replace('<strong>','used',1)
+    data = data.replace('</strong>','used',1)
 
-a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;div class="tit">数据统计&lt;span>'</span><span class="token punctuation">)</span>
-b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;/span>'</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'\n\n数据统计\t'</span> <span class="token operator">+</span> data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">27</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span><span class="token punctuation">)</span>
+a = data.find('<div class="tit">数据统计<span>')
+b = data.find('</span>')
+print('\n\n数据统计\t' + data[a+27:b])
 
-a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;p>'</span><span class="token punctuation">)</span>
-b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;/p>'</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span><span class="token punctuation">)</span>
-a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;p>'</span><span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;/p>'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span><span class="token punctuation">)</span>
+a = data.find('<p>')
+b = data.find('</p>')
+print(data[a+3:b])
+a = data.find('<p>',b)
+b = data.find('</p>',a)
+print(data[a+3:b])
 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"数据来源：网易新闻"</span><span class="token punctuation">)</span>
-input<span class="token punctuation">(</span><span class="token string">"按Enter键以退出..."</span><span class="token punctuation">)</span>
-os<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+print("数据来源：网易新闻")
+input("按Enter键以退出...")
+os.remove("data.txt")
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-2-第二个正式版本"><a href="#3-2-第二个正式版本" class="headerlink" title="3.2 第二个正式版本"></a>3.2 第二个正式版本</h2><p><strong>可以画图啦</strong>！</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"正在搭建环境......\n\n\n"</span><span class="token punctuation">)</span>
-<span class="token keyword">import</span> requests
-<span class="token keyword">import</span> os
-<span class="token keyword">import</span> matplotlib
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">print("正在搭建环境......\n\n\n")
+import requests
+import os
+import matplotlib
+import matplotlib.pyplot as plt
 
-os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'cls'</span><span class="token punctuation">)</span>
+os.system('cls')
 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"正在更新数据......"</span><span class="token punctuation">)</span>
-url <span class="token operator">=</span> <span class="token string">'http://news.163.com/special/epidemic/'</span>
-down <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> func<span class="token punctuation">:</span>
-    func<span class="token punctuation">.</span>write<span class="token punctuation">(</span>down<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+print("正在更新数据......")
+url = 'http://news.163.com/special/epidemic/'
+down = requests.get(url)
+with open("data.txt", "wb") as func:
+    func.write(down.content)
 
-<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> func<span class="token punctuation">:</span>
-    data <span class="token operator">=</span> func<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+with open("data.txt","r") as func:
+    data = func.read()
 
-x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-confirm <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-suspect <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-heal <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-dead <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+x = []
+confirm = []
+suspect = []
+heal = []
+dead = []
 
-plt<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.sans-serif'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'SimHei'</span><span class="token punctuation">]</span>
+plt.rcParams['font.sans-serif'] = ['SimHei']
 
-data <span class="token operator">=</span> data<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'date'</span><span class="token punctuation">,</span><span class="token string">'viewed'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'date'</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> a <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
-        <span class="token keyword">break</span>
-    b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'confirm'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-    b_end <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-    c <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'suspect'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-    c_end <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span>c<span class="token punctuation">)</span>
-    d <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'heal'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-    d_end <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span>d<span class="token punctuation">)</span>
-    e <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'dead'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-    e_end <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">,</span>e<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> data<span class="token punctuation">[</span>e_end<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'}'</span><span class="token punctuation">:</span>
-        e_end <span class="token operator">=</span> e_end<span class="token number">-1</span>
-    x<span class="token punctuation">.</span>append<span class="token punctuation">(</span>data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">:</span>a<span class="token operator">+</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    confirm<span class="token punctuation">.</span>append<span class="token punctuation">(</span>int<span class="token punctuation">(</span>data<span class="token punctuation">[</span>b<span class="token operator">+</span><span class="token number">9</span><span class="token punctuation">:</span>b_end<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    suspect<span class="token punctuation">.</span>append<span class="token punctuation">(</span>int<span class="token punctuation">(</span>data<span class="token punctuation">[</span>c<span class="token operator">+</span><span class="token number">9</span><span class="token punctuation">:</span>c_end<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    heal<span class="token punctuation">.</span>append<span class="token punctuation">(</span>int<span class="token punctuation">(</span>data<span class="token punctuation">[</span>d<span class="token operator">+</span><span class="token number">6</span><span class="token punctuation">:</span>d_end<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    dead<span class="token punctuation">.</span>append<span class="token punctuation">(</span>int<span class="token punctuation">(</span>data<span class="token punctuation">[</span>e<span class="token operator">+</span><span class="token number">6</span><span class="token punctuation">:</span>e_end<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    data <span class="token operator">=</span> data<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'date'</span><span class="token punctuation">,</span><span class="token string">'viewed'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+data = data.replace('date','viewed',1)
+while True:
+    a = data.find('date')
+    if a == -1:
+        break
+    b = data.find('confirm',a)
+    b_end = data.find(',',b)
+    c = data.find('suspect',a)
+    c_end = data.find(',',c)
+    d = data.find('heal',a)
+    d_end = data.find(',',d)
+    e = data.find('dead',a)
+    e_end = data.find(',',e)
+    if data[e_end-1] == '}':
+        e_end = e_end-1
+    x.append(data[a+7:a+12])
+    confirm.append(int(data[b+9:b_end]))
+    suspect.append(int(data[c+9:c_end]))
+    heal.append(int(data[d+6:d_end]))
+    dead.append(int(data[e+6:e_end]))
+    data = data.replace('date','viewed',1)
 
-a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;div class="tit">数据统计&lt;span>'</span><span class="token punctuation">)</span>
-b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;/span>'</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'\n\n数据统计\t'</span> <span class="token operator">+</span> data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">27</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span><span class="token punctuation">)</span>
+a = data.find('<div class="tit">数据统计<span>')
+b = data.find('</span>')
+print('\n\n数据统计\t' + data[a+27:b])
 
-a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;p>'</span><span class="token punctuation">)</span>
-b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;/p>'</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span><span class="token punctuation">)</span>
-a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;p>'</span><span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'&lt;/p>'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span><span class="token punctuation">)</span>
+a = data.find('<p>')
+b = data.find('</p>')
+print(data[a+3:b])
+a = data.find('<p>',b)
+b = data.find('</p>',a)
+print(data[a+3:b])
 
-plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+plt.figure(figsize=(16,9))
 
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>confirm<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'确诊'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'red'</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span>markerfacecolor<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>suspect<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'疑似'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0.94</span><span class="token punctuation">,</span><span class="token number">0.88</span><span class="token punctuation">,</span><span class="token number">0.04</span><span class="token punctuation">)</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span>markerfacecolor<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>heal<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'治愈'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'green'</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span>markerfacecolor<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>dead<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'死亡'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'black'</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span>markerfacecolor<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
+plt.plot(x,confirm,label='确诊',linewidth=2,color='red',marker='o',markerfacecolor='blue',markersize=6)
+plt.plot(x,suspect,label='疑似',linewidth=2,color=(0.94,0.88,0.04),marker='o',markerfacecolor='blue',markersize=6)
+plt.plot(x,heal,label='治愈',linewidth=2,color='green',marker='o',markerfacecolor='blue',markersize=6)
+plt.plot(x,dead,label='死亡',linewidth=1,color='black',marker='o',markerfacecolor='blue',markersize=6)
 
-plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'日期'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">12</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'人数'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">12</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'疫情数据图'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">22</span><span class="token punctuation">)</span>
+plt.xlabel('日期',fontsize=12)
+plt.ylabel('人数',fontsize=12)
+plt.title('疫情数据图',fontsize=22)
 
-plt<span class="token punctuation">.</span>tick_params<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token string">'both'</span><span class="token punctuation">,</span> which<span class="token operator">=</span><span class="token string">'major'</span><span class="token punctuation">,</span> labelsize<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span>
+plt.tick_params(axis='both', which='major', labelsize=10)
 
-plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+plt.legend()
+plt.show()
 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"数据来源：网易新闻"</span><span class="token punctuation">)</span>
-input<span class="token punctuation">(</span><span class="token string">"按Enter键以退出..."</span><span class="token punctuation">)</span>
-os<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+print("数据来源：网易新闻")
+input("按Enter键以退出...")
+os.remove("data.txt")
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="3-3-第三个正式版本"><a href="#3-3-第三个正式版本" class="headerlink" title="3.3 第三个正式版本"></a>3.3 第三个正式版本</h2><h5 id="由于网易的数据接口被隐藏了只好更换数据源为腾讯。"><a href="#由于网易的数据接口被隐藏了只好更换数据源为腾讯。" class="headerlink" title="由于网易的数据接口被隐藏了只好更换数据源为腾讯。"></a>由于网易的数据接口被隐藏了只好更换数据源为腾讯。</h5><h5 id="目前暂时没有使用-json函数，因为腾讯的数据表结构太复杂，恐怕光格式化就要格式化半天。"><a href="#目前暂时没有使用-json函数，因为腾讯的数据表结构太复杂，恐怕光格式化就要格式化半天。" class="headerlink" title="目前暂时没有使用.json函数，因为腾讯的数据表结构太复杂，恐怕光格式化就要格式化半天。"></a>目前暂时没有使用.json函数，因为腾讯的数据表结构太复杂，恐怕光格式化就要格式化半天。</h5><p>代码：</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"正在搭建环境......\n\n\n"</span><span class="token punctuation">)</span>
-<span class="token keyword">import</span> requests
-<span class="token keyword">import</span> os
-<span class="token keyword">import</span> matplotlib
-<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<pre class="line-numbers language-lang-python"><code class="language-lang-python">print("正在搭建环境......\n\n\n")
+import requests
+import os
+import matplotlib
+import matplotlib.pyplot as plt
 
-<span class="token keyword">def</span> <span class="token function">get_info</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'confirm'</span><span class="token punctuation">)</span>
-    b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">',\\"'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-    confirm <span class="token operator">=</span> data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span>
-    a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'suspect'</span><span class="token punctuation">)</span>
-    b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">',\\"'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-    suspect <span class="token operator">=</span> data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span>
-    a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'dead'</span><span class="token punctuation">)</span>
-    b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">',\\"'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-    dead <span class="token operator">=</span> data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span>
-    a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'heal'</span><span class="token punctuation">)</span>
-    b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">',\\"'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> data<span class="token punctuation">[</span>b<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'}'</span><span class="token punctuation">:</span>
-        b <span class="token operator">=</span> b<span class="token number">-1</span>
-    heal <span class="token operator">=</span> data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span>
+def get_info(data):
+    a = data.find('confirm')
+    b = data.find(',\\"',a)
+    confirm = data[a+10:b]
+    a = data.find('suspect')
+    b = data.find(',\\"',a)
+    suspect = data[a+10:b]
+    a = data.find('dead')
+    b = data.find(',\\"',a)
+    dead = data[a+7:b]
+    a = data.find('heal')
+    b = data.find(',\\"',a)
+    if data[b-1] == '}':
+        b = b-1
+    heal = data[a+7:b]
 
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"数据统计："</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"确诊："</span><span class="token operator">+</span>confirm<span class="token operator">+</span><span class="token string">", 疑似："</span><span class="token operator">+</span>suspect<span class="token operator">+</span><span class="token string">", 死亡"</span><span class="token operator">+</span>dead<span class="token operator">+</span><span class="token string">", 治愈："</span><span class="token operator">+</span>heal<span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"较昨日："</span><span class="token punctuation">)</span>
-    data <span class="token operator">=</span> data<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'confirm'</span><span class="token punctuation">,</span><span class="token string">'viewed'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    print("数据统计：")
+    print("确诊："+confirm+", 疑似："+suspect+", 死亡"+dead+", 治愈："+heal)
+    print("较昨日：")
+    data = data.replace('confirm','viewed',1)
 
-    a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'confirm'</span><span class="token punctuation">)</span>
-    b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">',\\"'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-    confirm <span class="token operator">=</span> data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span>
-    a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'suspect'</span><span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-    b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">',\\"'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-    suspect <span class="token operator">=</span> data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span>
-    a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'dead'</span><span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-    b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">',\\"'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-    dead <span class="token operator">=</span> data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span>
-    a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'heal'</span><span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-    b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">',\\"'</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> data<span class="token punctuation">[</span>b<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'}'</span><span class="token punctuation">:</span>
-        b <span class="token operator">=</span> b<span class="token number">-1</span>
-    heal <span class="token operator">=</span> data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">:</span>b<span class="token punctuation">]</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"确诊："</span><span class="token operator">+</span>confirm<span class="token operator">+</span><span class="token string">", 疑似："</span><span class="token operator">+</span>suspect<span class="token operator">+</span><span class="token string">", 死亡"</span><span class="token operator">+</span>dead<span class="token operator">+</span><span class="token string">", 治愈："</span><span class="token operator">+</span>heal<span class="token punctuation">)</span>
+    a = data.find('confirm')
+    b = data.find(',\\"',a)
+    confirm = data[a+10:b]
+    a = data.find('suspect',b)
+    b = data.find(',\\"',a)
+    suspect = data[a+10:b]
+    a = data.find('dead',b)
+    b = data.find(',\\"',a)
+    dead = data[a+7:b]
+    a = data.find('heal',b)
+    b = data.find(',\\"',a)
+    if data[b-1] == '}':
+        b = b-1
+    heal = data[a+7:b]
+    print("确诊："+confirm+", 疑似："+suspect+", 死亡"+dead+", 治愈："+heal)
 
-os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'cls'</span><span class="token punctuation">)</span>
+os.system('cls')
 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"正在更新数据......"</span><span class="token punctuation">)</span>
-url <span class="token operator">=</span> <span class="token string">'https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5'</span>
-down <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
-<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> func<span class="token punctuation">:</span>
-    func<span class="token punctuation">.</span>write<span class="token punctuation">(</span>down<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
+print("正在更新数据......")
+url = 'https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5'
+down = requests.get(url)
+with open("data.txt", "wb") as func:
+    func.write(down.content)
 
-<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">,</span><span class="token string">"r"</span><span class="token punctuation">,</span>encoding <span class="token operator">=</span> <span class="token string">'UTF-8'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> func<span class="token punctuation">:</span>
-    data <span class="token operator">=</span> func<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+with open("data.txt","r",encoding = 'UTF-8') as func:
+    data = func.read()
 
-x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-confirm <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-suspect <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-heal <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-dead <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-<span class="token comment" spellcheck="true"># 支持中文</span>
-plt<span class="token punctuation">.</span>rcParams<span class="token punctuation">[</span><span class="token string">'font.sans-serif'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'SimHei'</span><span class="token punctuation">]</span>
+x = []
+confirm = []
+suspect = []
+heal = []
+dead = []
+# 支持中文
+plt.rcParams['font.sans-serif'] = ['SimHei']
 
-get_info<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+get_info(data)
 
-data <span class="token operator">=</span> data<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'confirm'</span><span class="token punctuation">,</span><span class="token string">"viewed"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    a <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'date\\":\\"'</span><span class="token punctuation">)</span>
-    et <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'chinaDayAddList'</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> et<span class="token operator">-</span>a <span class="token operator">&lt;</span> <span class="token number">200</span><span class="token punctuation">:</span>
-        <span class="token keyword">break</span>
-    b <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'confirm'</span><span class="token punctuation">)</span>
-    b_end <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">',\\"'</span><span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-    c <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'suspect'</span><span class="token punctuation">,</span>b<span class="token punctuation">)</span>
-    c_end <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">',\\"'</span><span class="token punctuation">,</span>c<span class="token punctuation">)</span>
+data = data.replace('confirm',"viewed",2)
+while True:
+    a = data.find('date\\":\\"')
+    et = data.find('chinaDayAddList')
+    if et-a < 200:
+        break
+    b = data.find('confirm')
+    b_end = data.find(',\\"',b)
+    c = data.find('suspect',b)
+    c_end = data.find(',\\"',c)
 
-    e <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'dead'</span><span class="token punctuation">,</span>c<span class="token punctuation">)</span>
-    e_end <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">',\\"'</span><span class="token punctuation">,</span>e<span class="token punctuation">)</span>
-    d <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'heal'</span><span class="token punctuation">,</span>c<span class="token punctuation">)</span>
-    d_end <span class="token operator">=</span> data<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">',\\"'</span><span class="token punctuation">,</span>d<span class="token punctuation">)</span>
+    e = data.find('dead',c)
+    e_end = data.find(',\\"',e)
+    d = data.find('heal',c)
+    d_end = data.find(',\\"',d)
 
-    x<span class="token punctuation">.</span>append<span class="token punctuation">(</span>data<span class="token punctuation">[</span>a<span class="token operator">+</span><span class="token number">9</span><span class="token punctuation">:</span>a<span class="token operator">+</span><span class="token number">14</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    confirm<span class="token punctuation">.</span>append<span class="token punctuation">(</span>int<span class="token punctuation">(</span>data<span class="token punctuation">[</span>b<span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">:</span>b_end<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    suspect<span class="token punctuation">.</span>append<span class="token punctuation">(</span>int<span class="token punctuation">(</span>data<span class="token punctuation">[</span>c<span class="token operator">+</span><span class="token number">10</span><span class="token punctuation">:</span>c_end<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    heal<span class="token punctuation">.</span>append<span class="token punctuation">(</span>int<span class="token punctuation">(</span>data<span class="token punctuation">[</span>d<span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">:</span>d_end<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    dead<span class="token punctuation">.</span>append<span class="token punctuation">(</span>int<span class="token punctuation">(</span>data<span class="token punctuation">[</span>e<span class="token operator">+</span><span class="token number">7</span><span class="token punctuation">:</span>e_end<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    x.append(data[a+9:a+14])
+    confirm.append(int(data[b+10:b_end]))
+    suspect.append(int(data[c+10:c_end]))
+    heal.append(int(data[d+7:d_end]))
+    dead.append(int(data[e+7:e_end]))
 
-    data <span class="token operator">=</span> data<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'confirm'</span><span class="token punctuation">,</span><span class="token string">"viewed"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
-    data <span class="token operator">=</span> data<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'date\\":\\"'</span><span class="token punctuation">,</span><span class="token string">'viewed'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    data = data.replace('confirm',"viewed",2)
+    data = data.replace('date\\":\\"','viewed',1)
 
-plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 关键字 线宽 颜色 点型</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>confirm<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'确诊'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'red'</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span>markerfacecolor<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>suspect<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'疑似'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">0.94</span><span class="token punctuation">,</span><span class="token number">0.88</span><span class="token punctuation">,</span><span class="token number">0.04</span><span class="token punctuation">)</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span>markerfacecolor<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>heal<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'治愈'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'green'</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span>markerfacecolor<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>plot<span class="token punctuation">(</span>x<span class="token punctuation">,</span>dead<span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'死亡'</span><span class="token punctuation">,</span>linewidth<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>color<span class="token operator">=</span><span class="token string">'black'</span><span class="token punctuation">,</span>marker<span class="token operator">=</span><span class="token string">'o'</span><span class="token punctuation">,</span>markerfacecolor<span class="token operator">=</span><span class="token string">'blue'</span><span class="token punctuation">,</span>markersize<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span>
+plt.figure(figsize=(16,9))
+# 关键字 线宽 颜色 点型
+plt.plot(x,confirm,label='确诊',linewidth=2,color='red',marker='o',markerfacecolor='blue',markersize=6)
+plt.plot(x,suspect,label='疑似',linewidth=2,color=(0.94,0.88,0.04),marker='o',markerfacecolor='blue',markersize=6)
+plt.plot(x,heal,label='治愈',linewidth=2,color='green',marker='o',markerfacecolor='blue',markersize=6)
+plt.plot(x,dead,label='死亡',linewidth=1,color='black',marker='o',markerfacecolor='blue',markersize=6)
 
-plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'日期'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">12</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'人数'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">12</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string">'疫情数据图'</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">22</span><span class="token punctuation">)</span>
+plt.xlabel('日期',fontsize=12)
+plt.ylabel('人数',fontsize=12)
+plt.title('疫情数据图',fontsize=22)
 
-<span class="token comment" spellcheck="true"># 坐标轴</span>
-plt<span class="token punctuation">.</span>tick_params<span class="token punctuation">(</span>axis<span class="token operator">=</span><span class="token string">'both'</span><span class="token punctuation">,</span> which<span class="token operator">=</span><span class="token string">'major'</span><span class="token punctuation">,</span> labelsize<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 图例</span>
-plt<span class="token punctuation">.</span>legend<span class="token punctuation">(</span><span class="token punctuation">)</span>
-plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+# 坐标轴
+plt.tick_params(axis='both', which='major', labelsize=10)
+# 图例
+plt.legend()
+plt.show()
 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"数据来源：腾讯新闻"</span><span class="token punctuation">)</span>
-input<span class="token punctuation">(</span><span class="token string">"按Enter键以退出..."</span><span class="token punctuation">)</span>
-os<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token string">"data.txt"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+print("数据来源：腾讯新闻")
+input("按Enter键以退出...")
+os.remove("data.txt")
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="4-效果展示"><a href="#4-效果展示" class="headerlink" title="4.效果展示"></a>4.效果展示</h1><h2 id="4-1-网易源网站（2020-02-02-约16-00）"><a href="#4-1-网易源网站（2020-02-02-约16-00）" class="headerlink" title="4.1 网易源网站（2020/02/02 约16:00）"></a>4.1 网易源网站（2020/02/02 约16:00）</h2><h3 id="网站链接"><a href="#网站链接" class="headerlink" title="网站链接"></a><a href="http://news.163.com/special/epidemic" target="_blank" rel="noopener">网站链接</a></h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/wjsoj/pic/img/20200202161614.png" alt="顶部"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/wjsoj/pic/img/20200202161742.png" alt="地图"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/wjsoj/pic/img/20200202161818.png" alt="图表1"></p>
@@ -1277,7 +1295,7 @@ Cmder官网提供两种版本的下载链接，其中Mini版是轻量级的，�
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">36.7k</span> 字
+                <span class="white-color">27.9k</span> 字
             
 
             
@@ -1473,5 +1491,21 @@ $(function () {
             </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>
