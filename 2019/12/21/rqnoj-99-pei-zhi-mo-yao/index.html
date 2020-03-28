@@ -591,14 +591,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        733
+                        923
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        4 分
                     </div>
                     
                 
@@ -617,57 +617,54 @@
 1 2 10
 4 7 20
 1 3 2
-3 7 3
-</code></pre><h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><pre><code>35
-</code></pre><h3 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a><strong>主要思路</strong></h3><p>此题可化简为选取线段的题目：即选取多条线段，任意两条线段不能有重合，求最大的分值。但此题由于有两个锅，所以较为麻烦。我的解决方法是：开一个三维dp数组，dp[k][i][j]，描述选到第k个魔药，第一个锅在配第i种魔药，第二个锅在配第j种魔药时的最大分值（药效）。当转移第一个锅时，前两维相同，第二个锅时，第一维和第三维相同，这样就不会有重复，每次更新答案即可。转移过程如下：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwOTAyMTYzNjU4NTA2?x-oss-process=image/format,png" alt=""><br>此题与另一道题（RQNOJ 569 Milking Time）相比，更多了一层难度，对于选取线段的题目基础知识的讲解，欢迎来看我的另一篇博客：<a href="https://wjsoj.github.io/2019/12/21/rqnoj-569-milking-time/">RQNOJ 569 Milking Time</a></p>
-<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a><strong>代码如下</strong></h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include <iostream>
-#include <cstdio>
-#include <vector>
-#include <queue>
-#include <cmath>
-#include <algorithm>
-#include <cstdlib>
-#include <ctime>
-#include <map>
-#include <stack>
-#include <cstring>
-using namespace std;
-#define ll long long
+3 7 3</code></pre><h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><pre><code>35</code></pre><h3 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a><strong>主要思路</strong></h3><p>此题可化简为选取线段的题目：即选取多条线段，任意两条线段不能有重合，求最大的分值。但此题由于有两个锅，所以较为麻烦。我的解决方法是：开一个三维dp数组，dp[k][i][j]，描述选到第k个魔药，第一个锅在配第i种魔药，第二个锅在配第j种魔药时的最大分值（药效）。当转移第一个锅时，前两维相同，第二个锅时，第一维和第三维相同，这样就不会有重复，每次更新答案即可。转移过程如下：<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwOTAyMTYzNjU4NTA2?x-oss-process=image/format,png" alt=""><br>此题与另一道题（RQNOJ 569 Milking Time）相比，更多了一层难度，对于选取线段的题目基础知识的讲解，欢迎来看我的另一篇博客：<a href="https://wjsoj.github.io/2019/12/21/rqnoj-569-milking-time/">RQNOJ 569 Milking Time</a></p>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a><strong>代码如下</strong></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cmath></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdlib></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;ctime></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;map></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stack></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> ll long long</span>
 
-struct nod{
-    int l,r,w;
-}a[105];
+<span class="token keyword">struct</span> nod<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> l<span class="token punctuation">,</span>r<span class="token punctuation">,</span>w<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>a<span class="token punctuation">[</span><span class="token number">105</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-int t,n,ans;
-int dp[105][105][105];
+<span class="token keyword">int</span> t<span class="token punctuation">,</span>n<span class="token punctuation">,</span>ans<span class="token punctuation">;</span>
+<span class="token keyword">int</span> dp<span class="token punctuation">[</span><span class="token number">105</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">105</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">105</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-bool cmp(nod x,nod y)
-{
-    return x.l<y.l;
-}
+<span class="token keyword">bool</span> <span class="token function">cmp</span><span class="token punctuation">(</span>nod x<span class="token punctuation">,</span>nod y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> x<span class="token punctuation">.</span>l<span class="token operator">&lt;</span>y<span class="token punctuation">.</span>l<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int main(int argc, char const *argv[])
-{
-    ios::sync_with_stdio(false);
-    cin>>t>>n;
-    for(int i=1;i<=n;i++)
-        cin>>a[i].l>>a[i].r>>a[i].w;
-    sort(a+1,a+n+1,cmp);
-    for(int k=1;k<=n;k++)
-        for(int i=0;i<k;i++)
-            for(int j=0;j<k;j++)
-            {
-                dp[k][i][j]=dp[k-1][i][j];
-                if(a[i].r<a[k].l)
-                    dp[k][k][j]=max(dp[k][k][j],dp[k-1][i][j]+a[k].w);
-                if(a[j].r<a[k].l)
-                    dp[k][i][k]=max(dp[k][i][k],dp[k-1][i][j]+a[k].w);
-                ans=max(ans,max(dp[k][k][j],dp[k][i][k]));
-            }
-    cout<<ans<<endl;
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>t<span class="token operator">>></span>n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        cin<span class="token operator">>></span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>l<span class="token operator">>></span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>r<span class="token operator">>></span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>w<span class="token punctuation">;</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>a<span class="token operator">+</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>cmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>k<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>k<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>k<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>dp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>r<span class="token operator">&lt;</span>a<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>l<span class="token punctuation">)</span>
+                    dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span>a<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>r<span class="token operator">&lt;</span>a<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>l<span class="token punctuation">)</span>
+                    dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span>a<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>w<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                ans<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -970,6 +967,8 @@ int main(int argc, char const *argv[])
 
 </main>
 
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 
         <footer class="page-footer bg-color">
     <div class="container row center-align">
@@ -986,7 +985,7 @@ int main(int argc, char const *argv[])
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">27.9k</span> 字
+                <span class="white-color">36.7k</span> 字
             
 
             
@@ -1182,5 +1181,5 @@ $(function () {
             </script>
         
 
-    <script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>

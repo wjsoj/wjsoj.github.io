@@ -591,14 +591,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        627
+                        944
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        3 分
                     </div>
                     
                 
@@ -612,13 +612,12 @@
             <div id="articleContent">
                 <h1 id="一-Markdown是什么？"><a href="#一-Markdown是什么？" class="headerlink" title="一.Markdown是什么？"></a>一.Markdown是什么？</h1><p> 百度百科：Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。<br> 1.Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。<br> 2.用于编写说明文档，并且以“README.md”的文件名保存在软件的目录下面。<br> 3.除此之外，由于我们有了RStudio这样的神级编辑器，我们还可以快速将Markdown转化为演讲PPT、Word产品文档、LaTex论文甚至是用非常少量的代码完成最小可用原型。在数据科学领域，Markdown已经广泛使用，极大地推进了动态可重复性研究的历史进程。<br> <strong>这里，我利用Markdown编辑器在博客园上写博客，因此留下这篇博客用以基本语法知识的备份与梳理，以防忘记。</strong></p>
 <h1 id="二-常用语法"><a href="#二-常用语法" class="headerlink" title="二.常用语法"></a>二.常用语法</h1><h2 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h2><p> 在Markdown中，用#号+文本来表示标题，共六级，在博客园中，第六级不必加#号，直接写入文本即可。</p>
-<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><pre class="line-numbers language-lang-markdown"><code class="language-lang-markdown"># 这是一级标题
-## 这是二级标题
-### 这是三级标题
-#### 这是四级标题
-##### 这是五级标题
-这是一个段落
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> 这是一级标题</span>
+<span class="token title important"><span class="token punctuation">##</span> 这是二级标题</span>
+<span class="token title important"><span class="token punctuation">###</span> 这是三级标题</span>
+<span class="token title important"><span class="token punctuation">####</span> 这是四级标题</span>
+<span class="token title important"><span class="token punctuation">#####</span> 这是五级标题</span>
+这是一个段落<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a>效果如下：</h3><blockquote>
 <h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><p>这是一个段落</p>
 </blockquote>
@@ -626,18 +625,15 @@
 <h3 id="这是一则示例文本"><a href="#这是一则示例文本" class="headerlink" title="这是一则示例文本"></a>这是一则示例文本</h3><blockquote>
 <h4 id="这是一则嵌套引用"><a href="#这是一则嵌套引用" class="headerlink" title="这是一则嵌套引用"></a>这是一则嵌套引用</h4></blockquote>
 </blockquote>
-<h2 id="4-华丽丽的分割线"><a href="#4-华丽丽的分割线" class="headerlink" title="4.华丽丽的分割线"></a>4.华丽丽的分割线</h2><h3 id="三个或三个以上的-或"><a href="#三个或三个以上的-或" class="headerlink" title="三个或三个以上的*或-"></a>三个或三个以上的<code>*或-</code></h3><pre class="line-numbers language-lang-markdown"><code class="language-lang-markdown">******
-------
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="4-华丽丽的分割线"><a href="#4-华丽丽的分割线" class="headerlink" title="4.华丽丽的分割线"></a>4.华丽丽的分割线</h2><h3 id="三个或三个以上的-或"><a href="#三个或三个以上的-或" class="headerlink" title="三个或三个以上的*或-"></a>三个或三个以上的<code>*或-</code></h3><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token hr punctuation">******</span>
+<span class="token hr punctuation">------</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="效果："><a href="#效果：" class="headerlink" title="效果："></a>效果：</h3><hr>
 <hr>
-<h2 id="5-链接与图片"><a href="#5-链接与图片" class="headerlink" title="5.链接与图片"></a>5.链接与图片</h2><h3 id="格式为："><a href="#格式为：" class="headerlink" title="格式为："></a>格式为：</h3><pre class="line-numbers language-lang-markdown"><code class="language-lang-markdown">[要显示的名称](链接地址 "链接title")
-![图片文字](图片地址 "图片title")
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="5-链接与图片"><a href="#5-链接与图片" class="headerlink" title="5.链接与图片"></a>5.链接与图片</h2><h3 id="格式为："><a href="#格式为：" class="headerlink" title="格式为："></a>格式为：</h3><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token url">[要显示的名称](链接地址 <span class="token string">"链接title"</span>)</span>
+<span class="token url">![图片文字](图片地址 <span class="token string">"图片title"</span>)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>注意：一般不加title</p>
-<h3 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h3><pre class="line-numbers language-lang-markdown"><code class="language-lang-markdown">[博客园](https://www.cnblogs.com)
-![壁纸](http://yanxuan.nosdn.127.net/29ed90248fa17692b94aaf38cccd7a34.jpg)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h3><pre class="line-numbers language-markdown"><code class="language-markdown"><span class="token url">[博客园](https://www.cnblogs.com)</span>
+<span class="token url">![壁纸](http://yanxuan.nosdn.127.net/29ed90248fa17692b94aaf38cccd7a34.jpg)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="博客园"><a href="#博客园" class="headerlink" title="博客园"></a><a href="https://www.cnblogs.com" title="title" target="_blank" rel="noopener">博客园</a></h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://yanxuan.nosdn.127.net/29ed90248fa17692b94aaf38cccd7a34.jpg" alt="壁纸"></p>
 <p> 在上传图片时，我选用由<a href="https://u.tools" target="_blank" rel="noopener">utools</a>提供的“图床”插件，支持多个源的图床服务器上传，拖动至窗口即可上传，可以直接复制成markdown格式，十分方便便捷，如图所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://yanxuan.nosdn.127.net/2990a0dad36737fed1e4494da99ee265.png" alt=""></p>
@@ -648,24 +644,23 @@
 <blockquote>
 <p>代码块：<br>```<br>int main(int argc, char const *argv[])<br>{<br>    cout&lt;&lt;”Hello World”&lt;&lt;endl;<br>    return 0;<br>}<br>```</p>
 </blockquote>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">int main(int argc, char const *argv[])
-{
-    cout<<"Hello World"<<endl;
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"Hello World"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="7-数学公式"><a href="#7-数学公式" class="headerlink" title="7.数学公式"></a>7.数学公式</h2><p>作为一个不会LaTeX的菜鸡，只好使用Markdown自带的公式编辑器，这里注意博客园默认是不支持数学公式的，请提前在管理后台勾选“启用数学公式支持”。</p>
 <h4 id="其使用方法如下："><a href="#其使用方法如下：" class="headerlink" title="其使用方法如下："></a>其使用方法如下：</h4><blockquote>
-<p>行内公式：\$ a^2+b^2=c^2 \$</p>
+<p>行内公式：$ a^2+b^2=c^2 $</p>
 </blockquote>
 <h4 id="这是行内公式-a-2-b-2-c-2-的一个实例。"><a href="#这是行内公式-a-2-b-2-c-2-的一个实例。" class="headerlink" title="这是行内公式  $ a^2+b^2=c^2 $  的一个实例。"></a>这是行内公式  $ a^2+b^2=c^2 $  的一个实例。</h4><blockquote>
 <p>公式块：</p>
-<p>\$\$</p>
+<p>$$</p>
 <p>a^2+b^2=c^2</p>
-<p>\$\$</p>
+<p>$$</p>
 </blockquote>
-<script type="math/tex; mode=display">
-a^2+b^2=c^2</script><h3 id="常用数学符号的表示方法：-参考链接"><a href="#常用数学符号的表示方法：-参考链接" class="headerlink" title="常用数学符号的表示方法： 参考链接"></a>常用数学符号的表示方法： <a href="https://www.jianshu.com/p/e74eb43960a1" target="_blank" rel="noopener">参考链接</a></h3><pre><code>下标符号：x_1
+<p>$$<br>a^2+b^2=c^2<br>$$</p>
+<h3 id="常用数学符号的表示方法：-参考链接"><a href="#常用数学符号的表示方法：-参考链接" class="headerlink" title="常用数学符号的表示方法： 参考链接"></a>常用数学符号的表示方法： <a href="https://www.jianshu.com/p/e74eb43960a1" target="_blank" rel="noopener">参考链接</a></h3><pre><code>下标符号：x_1
 乘法：\times
 点乘：\cdot
 星号乘：\ast
@@ -684,8 +679,7 @@ a^2+b^2=c^2</script><h3 id="常用数学符号的表示方法：-参考链接"><
 并集：\cup
 真子集：\subsetep
 空集：\emptyset
-无穷：\infty
-</code></pre><h2 id="8-转义字符”-”"><a href="#8-转义字符”-”" class="headerlink" title="8.转义字符”\\”"></a>8.转义字符”\\”</h2><h4 id="用以输出矛盾文本时进行转义。"><a href="#用以输出矛盾文本时进行转义。" class="headerlink" title="用以输出矛盾文本时进行转义。"></a>用以输出矛盾文本时进行转义。</h4><h2 id="9-表格、列表、流程图"><a href="#9-表格、列表、流程图" class="headerlink" title="9.表格、列表、流程图"></a>9.表格、列表、流程图</h2><h4 id="不会，所以不在这里列出。"><a href="#不会，所以不在这里列出。" class="headerlink" title="不会，所以不在这里列出。"></a>不会，所以不在这里列出。</h4><h1 id="三-推荐一款编辑器Typora"><a href="#三-推荐一款编辑器Typora" class="headerlink" title="三.推荐一款编辑器Typora"></a>三.推荐一款编辑器Typora</h1><h2 id="官网直达"><a href="#官网直达" class="headerlink" title="官网直达"></a><a href="https://www.typora.io" target="_blank" rel="noopener">官网直达</a></h2><h3 id="界面展示："><a href="#界面展示：" class="headerlink" title="界面展示："></a>界面展示：</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://yanxuan.nosdn.127.net/54f936cfb92d3b5c4be8ad6dce2e1f6a.png" alt=""></p>
+无穷：\infty</code></pre><h2 id="8-转义字符”-“"><a href="#8-转义字符”-“" class="headerlink" title="8.转义字符”\“"></a>8.转义字符”\“</h2><h4 id="用以输出矛盾文本时进行转义。"><a href="#用以输出矛盾文本时进行转义。" class="headerlink" title="用以输出矛盾文本时进行转义。"></a>用以输出矛盾文本时进行转义。</h4><h2 id="9-表格、列表、流程图"><a href="#9-表格、列表、流程图" class="headerlink" title="9.表格、列表、流程图"></a>9.表格、列表、流程图</h2><h4 id="不会，所以不在这里列出。"><a href="#不会，所以不在这里列出。" class="headerlink" title="不会，所以不在这里列出。"></a>不会，所以不在这里列出。</h4><h1 id="三-推荐一款编辑器Typora"><a href="#三-推荐一款编辑器Typora" class="headerlink" title="三.推荐一款编辑器Typora"></a>三.推荐一款编辑器Typora</h1><h2 id="官网直达"><a href="#官网直达" class="headerlink" title="官网直达"></a><a href="https://www.typora.io" target="_blank" rel="noopener">官网直达</a></h2><h3 id="界面展示："><a href="#界面展示：" class="headerlink" title="界面展示："></a>界面展示：</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://yanxuan.nosdn.127.net/54f936cfb92d3b5c4be8ad6dce2e1f6a.png" alt=""></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://yanxuan.nosdn.127.net/a5e65a3c5178fa6dc16e0b408f2f9e9e.png" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -992,8 +986,10 @@ a^2+b^2=c^2</script><h3 id="常用数学符号的表示方法：-参考链接"><
 
 </main>
 
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
-<script src=""></script>
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -1015,7 +1011,7 @@ a^2+b^2=c^2</script><h3 id="常用数学符号的表示方法：-参考链接"><
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">27.9k</span> 字
+                <span class="white-color">36.7k</span> 字
             
 
             
@@ -1211,5 +1207,5 @@ $(function () {
             </script>
         
 
-    <script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>

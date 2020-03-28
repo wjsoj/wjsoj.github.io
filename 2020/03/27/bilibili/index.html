@@ -628,97 +628,96 @@
 <li>显然58进制下每一位的数字有58种可能[0,57]，按照正常人的思路我们会用0-9继续代表0-9，小写字母a-z代表新进制下的10-35，剩下的再用大写字母表示。但这样不就太好猜了？于是B站建立了一套全新的映射关系，将0-57与字母数字之间一一对应起来，这个映射关系从外观上看是没有任何规律的。</li>
 <li>再按照正常人的思路这时把这个58进制由字母数字混合而成的字符串作为BV号就好了，但开发者们显然不满足于此，认为还是不够迷惑人。于是他们把数位关系又作了一番调整（比如原本的第一位变成第五位，第六位变成第二位等等），这样就产生了我们最终看到的BV号。</li>
 </ol>
-<p>新产生的BV号强制区分大小写，难以记忆且又长又乱，刚刚出现就饱受诟病，纷纷追寻逝去的av号，然后我们这位<strong>@mcfx</strong>大佬只用了不到一天时间就让B站开发者们的努力化为了泡影~~~</p>
-<h2 id="2-2-代码的部分解释（详见注释）"><a href="#2-2-代码的部分解释（详见注释）" class="headerlink" title="2.2 代码的部分解释（详见注释）"></a>2.2 代码的部分解释（详见注释）</h2><pre class="line-numbers language-lang-python"><code class="language-lang-python">import requests
+<p>新产生的BV号强制区分大小写，难以记忆且又长又乱，刚刚出现就饱受诟病，纷纷追寻逝去的av号，然后我们这位<strong>@mcfx</strong>大佬只用了不到一天时间就让B站开发者们的努力化为了泡影<del>~</del></p>
+<h2 id="2-2-代码的部分解释（详见注释）"><a href="#2-2-代码的部分解释（详见注释）" class="headerlink" title="2.2 代码的部分解释（详见注释）"></a>2.2 代码的部分解释（详见注释）</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
 
-map = 'fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF'
-# f_map 反向映射"dict"：从字符->阿拉伯数字
-# 这里必须使用映射（字典），故使用大括号
-f_map = {}
-for i in range(58):
-    f_map[map[i]] = i
+map <span class="token operator">=</span> <span class="token string">'fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF'</span>
+<span class="token comment" spellcheck="true"># f_map 反向映射"dict"：从字符->阿拉伯数字</span>
+<span class="token comment" spellcheck="true"># 这里必须使用映射（字典），故使用大括号</span>
+f_map <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">58</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    f_map<span class="token punctuation">[</span>map<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> i
 
-# 数位乱序
-rand = [9,8,1,6,2,4,0,7,3,5]
+<span class="token comment" spellcheck="true"># 数位乱序</span>
+rand <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span>
 
-# 不知道怎么试出来的magic number
-xor = 177451812
-add = 100618342136696320
+<span class="token comment" spellcheck="true"># 不知道怎么试出来的magic number</span>
+xor <span class="token operator">=</span> <span class="token number">177451812</span>
+add <span class="token operator">=</span> <span class="token number">100618342136696320</span>
 
-def av_to_bv(n):
-    n = (n^xor)+add
-    a = list('          ')
-    for i in range(10):
-        # 下面的divmod 返回 n整除58的值 和 n mod 58的值
-        n,ss = divmod(n,58) #相当于十进制转base58
+<span class="token keyword">def</span> <span class="token function">av_to_bv</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> <span class="token punctuation">(</span>n<span class="token operator">^</span>xor<span class="token punctuation">)</span><span class="token operator">+</span>add
+    a <span class="token operator">=</span> list<span class="token punctuation">(</span><span class="token string">'          '</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># 下面的divmod 返回 n整除58的值 和 n mod 58的值</span>
+        n<span class="token punctuation">,</span>ss <span class="token operator">=</span> divmod<span class="token punctuation">(</span>n<span class="token punctuation">,</span><span class="token number">58</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#相当于十进制转base58</span>
 
-        # 这里计算出来的第i位（从右往左）是实际BV号的第rand[i]位（从左往右）
-        a[rand[i]] = map[ss]
-    return 'BV'+''.join(a)
+        <span class="token comment" spellcheck="true"># 这里计算出来的第i位（从右往左）是实际BV号的第rand[i]位（从左往右）</span>
+        a<span class="token punctuation">[</span>rand<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> map<span class="token punctuation">[</span>ss<span class="token punctuation">]</span>
+    <span class="token keyword">return</span> <span class="token string">'BV'</span><span class="token operator">+</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
 
-def bv_to_av(n):
-    ans = 0
-    n = n.replace('BV','',1)
-    # 同理，这里目标av号的第i位（从右往左）是给定BV号的第rand[i]位
-    for i in range(10): # 要求的是第i位，应该找到BV号（字符串n）的第rand[i]位
-        tmp = n[ rand[i] ]  # 当前求的第i位(base58)对应的BV号中的一位
-        ss = f_map[tmp]     # 将被打乱过的base58 反向映射成阿拉伯数字的base58
-        ans += ss*(58**i)   # 将base58转换成十进制
-    # 下面用到了异或运算的性质：
-    # 若 a^b = c
-    # 则 c^b = a, c^a = b
-    # 很容易证明，无非就4种情况：0^1=1,1^1=0,1^0=1,0^0=0，它们分别满足这一性质
-    return (ans-add)^xor
+<span class="token keyword">def</span> <span class="token function">bv_to_av</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ans <span class="token operator">=</span> <span class="token number">0</span>
+    n <span class="token operator">=</span> n<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'BV'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 同理，这里目标av号的第i位（从右往左）是给定BV号的第rand[i]位</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># 要求的是第i位，应该找到BV号（字符串n）的第rand[i]位</span>
+        tmp <span class="token operator">=</span> n<span class="token punctuation">[</span> rand<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 当前求的第i位(base58)对应的BV号中的一位</span>
+        ss <span class="token operator">=</span> f_map<span class="token punctuation">[</span>tmp<span class="token punctuation">]</span>     <span class="token comment" spellcheck="true"># 将被打乱过的base58 反向映射成阿拉伯数字的base58</span>
+        ans <span class="token operator">+=</span> ss<span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">58</span><span class="token operator">**</span>i<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 将base58转换成十进制</span>
+    <span class="token comment" spellcheck="true"># 下面用到了异或运算的性质：</span>
+    <span class="token comment" spellcheck="true"># 若 a^b = c</span>
+    <span class="token comment" spellcheck="true"># 则 c^b = a, c^a = b</span>
+    <span class="token comment" spellcheck="true"># 很容易证明，无非就4种情况：0^1=1,1^1=0,1^0=1,0^0=0，它们分别满足这一性质</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>ans<span class="token operator">-</span>add<span class="token punctuation">)</span><span class="token operator">^</span>xor
 
-# 伪造请求头，你懂得（来自我的Cent Broser浏览器）
-headers = {
-            "Accept": "*/*",
-            "Accept-Encoding": "gzip, deflate, br",
-            "Accept-Language": "zh-CN,zh;q=0.9",
-            "Host": "api.bilibili.com",
-            "Referer": "https://www.bilibili.com/",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36",
-        }
+<span class="token comment" spellcheck="true"># 伪造请求头，你懂得（来自我的Cent Broser浏览器）</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">"Accept"</span><span class="token punctuation">:</span> <span class="token string">"*/*"</span><span class="token punctuation">,</span>
+            <span class="token string">"Accept-Encoding"</span><span class="token punctuation">:</span> <span class="token string">"gzip, deflate, br"</span><span class="token punctuation">,</span>
+            <span class="token string">"Accept-Language"</span><span class="token punctuation">:</span> <span class="token string">"zh-CN,zh;q=0.9"</span><span class="token punctuation">,</span>
+            <span class="token string">"Host"</span><span class="token punctuation">:</span> <span class="token string">"api.bilibili.com"</span><span class="token punctuation">,</span>
+            <span class="token string">"Referer"</span><span class="token punctuation">:</span> <span class="token string">"https://www.bilibili.com/"</span><span class="token punctuation">,</span>
+            <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36"</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
 
-def api_av_to_bv(n):
-    url = "https://api.bilibili.com/x/web-interface/archive/stat?&aid="+str(n)
-    r = requests.get(url,headers=headers)
-    response_dict = r.json()
-    target = response_dict['data']
-    return target['bvid']
+<span class="token keyword">def</span> <span class="token function">api_av_to_bv</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    url <span class="token operator">=</span> <span class="token string">"https://api.bilibili.com/x/web-interface/archive/stat?&amp;aid="</span><span class="token operator">+</span>str<span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+    response_dict <span class="token operator">=</span> r<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    target <span class="token operator">=</span> response_dict<span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> target<span class="token punctuation">[</span><span class="token string">'bvid'</span><span class="token punctuation">]</span>
 
-def api_bv_to_av(n):
-    url = "https://api.bilibili.com/x/web-interface/archive/stat?&bvid="+str(n)
-    r = requests.get(url,headers=headers)
-    response_dict = r.json()
-    target = response_dict['data']
-    return target['aid']
+<span class="token keyword">def</span> <span class="token function">api_bv_to_av</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    url <span class="token operator">=</span> <span class="token string">"https://api.bilibili.com/x/web-interface/archive/stat?&amp;bvid="</span><span class="token operator">+</span>str<span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    r <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span>headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+    response_dict <span class="token operator">=</span> r<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    target <span class="token operator">=</span> response_dict<span class="token punctuation">[</span><span class="token string">'data'</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> target<span class="token punctuation">[</span><span class="token string">'aid'</span><span class="token punctuation">]</span>
 
-link = input("支持的格式：1.原始视频链接 2.av号（av+数字） 3.BV号（BV+字符）")
-judge = link.find('BV')
-if judge == -1:
-    # av to bv
-    st = link.find('av')
-    ends = link.find('/',st)
-    if ends==-1:
-        s = link[st+2:len(link)]
-    else:
-        s = link[st+2:ends]
-    print("使用算法转换结果：  ",end='')
-    print(av_to_bv(int(s)))
-    print("使用api转换结果：  ",end='')
-    print(api_av_to_bv(int(s)))
-else:
-    ends = link.find('/',judge)
-    if ends==-1:
-        s = link[judge:len(link)]
-    else:
-        s = link[judge:ends]
-    print("使用算法转换结果：  ",end='')
-    print(bv_to_av(s))
-    print("使用api转换结果：  ",end='')
-    print(api_bv_to_av(s))
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+link <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"支持的格式：1.原始视频链接 2.av号（av+数字） 3.BV号（BV+字符）"</span><span class="token punctuation">)</span>
+judge <span class="token operator">=</span> link<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'BV'</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> judge <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># av to bv</span>
+    st <span class="token operator">=</span> link<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'av'</span><span class="token punctuation">)</span>
+    ends <span class="token operator">=</span> link<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span>st<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> ends<span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+        s <span class="token operator">=</span> link<span class="token punctuation">[</span>st<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">:</span>len<span class="token punctuation">(</span>link<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        s <span class="token operator">=</span> link<span class="token punctuation">[</span>st<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">:</span>ends<span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"使用算法转换结果：  "</span><span class="token punctuation">,</span>end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>av_to_bv<span class="token punctuation">(</span>int<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"使用api转换结果：  "</span><span class="token punctuation">,</span>end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>api_av_to_bv<span class="token punctuation">(</span>int<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    ends <span class="token operator">=</span> link<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span>judge<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> ends<span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+        s <span class="token operator">=</span> link<span class="token punctuation">[</span>judge<span class="token punctuation">:</span>len<span class="token punctuation">(</span>link<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        s <span class="token operator">=</span> link<span class="token punctuation">[</span>judge<span class="token punctuation">:</span>ends<span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"使用算法转换结果：  "</span><span class="token punctuation">,</span>end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>bv_to_av<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"使用api转换结果：  "</span><span class="token punctuation">,</span>end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>api_bv_to_av<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h1 id="3-使用效果"><a href="#3-使用效果" class="headerlink" title="3.使用效果"></a>3.使用效果</h1><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/wjsoj/pic/img/20200327234927.png" alt="BV链接"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/wjsoj/pic/img/20200327235126.png" alt="av链接"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/wjsoj/pic/img/20200327235356.png" alt="BV号"></p>
@@ -847,20 +846,20 @@ else:
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/15/xiao-chou-joker/">
+                <a href="/2020/02/15/shen-mi-de-e/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/wjsoj/wjsoj.github.io/medias/featureimages/10.jpg" class="responsive-img" alt="《小丑(Joker)》观后感">
+                        <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/wjsoj/wjsoj.github.io/medias/featureimages/18.jpg" class="responsive-img" alt="神秘的37%与自然常数e">
                         
-                        <span class="card-title">《小丑(Joker)》观后感</span>
+                        <span class="card-title">神秘的37%与自然常数e</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1. 概览
-一部R级限制级电影，一部失掉了中国票房的DC联盟电影，一部开创了电影史先河的独特电影，却取得了豆瓣评分8.7，全球票房10亿美元的佳绩。整部电影一改漫威宇宙、DC宇宙往年的“英雄个人主义”风格，而是第一次为反派人物立传，讲述了一
+                            1. 引言据传说这是苏格拉底给他的学生提出的问题：
+三个人走过同一块麦田，各自可以摘一株麦穗。期间只能摘一次，并且只可向前走，不能回头。第一个人走进麦田，很快就发现了一棵他认为很大的麦穗，便迫不及待地将它摘了下来。但当他继续前行时，很快就后
                         
                     </div>
                     <div class="publish-info">
@@ -871,8 +870,8 @@ else:
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/movie/" class="post-category" target="_blank">
-                                    movie
+                            <a href="/categories/math/" class="post-category" target="_blank">
+                                    math
                                 </a>
                             
                             
@@ -882,8 +881,8 @@ else:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/movie/" target="_blank">
-                        <span class="chip bg-color">movie</span>
+                    <a href="/tags/math/" target="_blank">
+                        <span class="chip bg-color">math</span>
                     </a>
                     
                 </div>
@@ -1031,6 +1030,8 @@ else:
 
 </main>
 
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 
         <footer class="page-footer bg-color">
     <div class="container row center-align">
@@ -1047,7 +1048,7 @@ else:
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">27.9k</span> 字
+                <span class="white-color">36.7k</span> 字
             
 
             
@@ -1243,5 +1244,5 @@ $(function () {
             </script>
         
 
-    <script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>

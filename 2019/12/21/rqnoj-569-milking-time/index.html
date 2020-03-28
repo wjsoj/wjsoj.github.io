@@ -591,14 +591,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        632
+                        806
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        3 分
                     </div>
                     
                 
@@ -617,57 +617,54 @@
 1 2 8
 10 12 19
 3 6 24
-7 10 31
-</code></pre><h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><pre><code>43
-</code></pre><h3 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a><strong>主要思路</strong></h3><p>此题一看，便知是经典的dp题目——选取线段，只不过多了一个<strong>“距离大于R”</strong>。而选取线段的题目，则是由01背包扩展而来的，只不过多了端点，由点变成了线段。下面，先讲一下选取线段的题目如何想：（懂得此部分内容的大佬请略过，直接到图片下方）<br>如果我们将题目中的”R”删去，改为<strong>“任意两条线段都不重合”</strong>，就是传统的选取线段问题。此类题目，只需要开一个结构体存储线段的左端点（l），右端点（r）和分值（w），再对结构体按照左端点从小到大排序，就变成了背包问题。用dp[i]表示选到第i条线段时的最大分数，再枚举左端点在i之前的线段j，此时只需考虑线段j的右端点是否小于等于线段i的左端点，如果是就转移，否则不变。同时，由于不一定要选到最后一条线段，答案不一定是dp[m]（例如dp[m]是负无穷），所以要每步更新ans。<br><strong>转移过程如下：</strong><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMwMjEzMzU3NDY2?x-oss-process=image/format,png" alt=""><br>到这里，唯一的问题就是新加入的距离R，为了解决这个问题，<strong>我采取了最最最智障的方法：假设每条线段比原本的线段长R，不就解决了？</strong>因此，在读入时，将线段的右端点+R即可。</p>
-<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a><strong>代码如下</strong></h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include <iostream>
-#include <cstdio>
-#include <vector>
-#include <queue>
-#include <cmath>
-#include <algorithm>
-#include <cstdlib>
-#include <ctime>
-#include <map>
-#include <stack>
-#include <cstring>
-using namespace std;
-#define ll long long
+7 10 31</code></pre><h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><pre><code>43</code></pre><h3 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a><strong>主要思路</strong></h3><p>此题一看，便知是经典的dp题目——选取线段，只不过多了一个<strong>“距离大于R”</strong>。而选取线段的题目，则是由01背包扩展而来的，只不过多了端点，由点变成了线段。下面，先讲一下选取线段的题目如何想：（懂得此部分内容的大佬请略过，直接到图片下方）<br>如果我们将题目中的”R”删去，改为<strong>“任意两条线段都不重合”</strong>，就是传统的选取线段问题。此类题目，只需要开一个结构体存储线段的左端点（l），右端点（r）和分值（w），再对结构体按照左端点从小到大排序，就变成了背包问题。用dp[i]表示选到第i条线段时的最大分数，再枚举左端点在i之前的线段j，此时只需考虑线段j的右端点是否小于等于线段i的左端点，如果是就转移，否则不变。同时，由于不一定要选到最后一条线段，答案不一定是dp[m]（例如dp[m]是负无穷），所以要每步更新ans。<br><strong>转移过程如下：</strong><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMwMjEzMzU3NDY2?x-oss-process=image/format,png" alt=""><br>到这里，唯一的问题就是新加入的距离R，为了解决这个问题，<strong>我采取了最最最智障的方法：假设每条线段比原本的线段长R，不就解决了？</strong>因此，在读入时，将线段的右端点+R即可。</p>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a><strong>代码如下</strong></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cmath></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdlib></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;ctime></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;map></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stack></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> ll long long</span>
 
-struct nod{//存储线段
-    int l,r,w;
-}a[1005];
+<span class="token keyword">struct</span> nod<span class="token punctuation">{</span><span class="token comment" spellcheck="true">//存储线段</span>
+    <span class="token keyword">int</span> l<span class="token punctuation">,</span>r<span class="token punctuation">,</span>w<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>a<span class="token punctuation">[</span><span class="token number">1005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-int n,m,r,ans=0;
-int dp[1000005];
+<span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">,</span>r<span class="token punctuation">,</span>ans<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> dp<span class="token punctuation">[</span><span class="token number">1000005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-bool cmp(nod x,nod y)
-{
-    return x.l<y.l;
-}
+<span class="token keyword">bool</span> <span class="token function">cmp</span><span class="token punctuation">(</span>nod x<span class="token punctuation">,</span>nod y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> x<span class="token punctuation">.</span>l<span class="token operator">&lt;</span>y<span class="token punctuation">.</span>l<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int main(int argc, char const *argv[])
-{
-    ios::sync_with_stdio(false);
-    cin>>n>>m>>r;
-    for(int i=1;i<=m;i++)
-    {
-        cin>>a[i].l>>a[i].r>>a[i].w;
-        a[i].r+=r;//距离问题
-    }
-    sort(a+1,a+m+1,cmp);
-    for(int i=1;i<=m;i++)
-    {
-        dp[i]=a[i].w;//首先必须选自己
-        for(int j=1;j<i;j++)//由于排好序，只需枚举前面的线段即可
-            if(a[j].r<=a[i].l)//如果合法
-                dp[i]=max(dp[i],dp[j]+a[i].w);//转移
-        ans=max(ans,dp[i]);//更新答案
-    }    
-    cout<<ans<<endl;//输出
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>n<span class="token operator">>></span>m<span class="token operator">>></span>r<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        cin<span class="token operator">>></span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>l<span class="token operator">>></span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>r<span class="token operator">>></span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>w<span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>r<span class="token operator">+</span><span class="token operator">=</span>r<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//距离问题</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>a<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>a<span class="token operator">+</span>m<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>cmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>w<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//首先必须选自己</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//由于排好序，只需枚举前面的线段即可</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span>r<span class="token operator">&lt;=</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>l<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//如果合法</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>w<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//转移</span>
+        ans<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//更新答案</span>
+    <span class="token punctuation">}</span>    
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -972,6 +969,8 @@ title Running
 
 </main>
 
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 
         <footer class="page-footer bg-color">
     <div class="container row center-align">
@@ -988,7 +987,7 @@ title Running
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">27.9k</span> 字
+                <span class="white-color">36.7k</span> 字
             
 
             
@@ -1184,5 +1183,5 @@ $(function () {
             </script>
         
 
-    <script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>

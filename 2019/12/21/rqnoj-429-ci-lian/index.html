@@ -591,14 +591,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        694
+                        820
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        3 分
                     </div>
                     
                 
@@ -618,60 +618,57 @@ i
 int
 integer
 intern
-internet
-</code></pre><h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><pre><code>4
-</code></pre><h3 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a><strong>主要思路</strong></h3><p>一眼看上去，便知这是一道dp题目，并且是一道典型的类似01背包型的题目，只不过添加了字符串，用dp[i]表示当前选到第i个字符串，所构成的最长词链的长度是多少，再枚举j，看哪些词能与当前字符串构成词链，dp方程不难推出：<br><strong>如果字符串i与j能够成词链：</strong><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI4MjEzMjE5NTgw?x-oss-process=image/format,png" alt=""></p>
+internet</code></pre><p>###Output</p>
+<pre><code>4</code></pre><h3 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a><strong>主要思路</strong></h3><p>一眼看上去，便知这是一道dp题目，并且是一道典型的类似01背包型的题目，只不过添加了字符串，用dp[i]表示当前选到第i个字符串，所构成的最长词链的长度是多少，再枚举j，看哪些词能与当前字符串构成词链，dp方程不难推出：<br><strong>如果字符串i与j能够成词链：</strong><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI4MjEzMjE5NTgw?x-oss-process=image/format,png" alt=""></p>
 <h4 id="看上去很简单是不是？相信大家都想到了。但是！这是n-2的复杂度，n-lt-10000"><a href="#看上去很简单是不是？相信大家都想到了。但是！这是n-2的复杂度，n-lt-10000" class="headerlink" title="看上去很简单是不是？相信大家都想到了。但是！这是n^2的复杂度，n<=10000!"></a>看上去很简单是不是？相信大家都想到了。<strong>但是！</strong>这是n^2的复杂度，n&lt;=10000!</h4><p>于是，TLE，80分…<br>因此，我们需要进行一些优化。转过头来看题目描述，发现：</p>
-<pre><code>并且单词按字典顺序排列
-</code></pre><p>所以，我们大可以不必枚举完，只需<strong>逆序</strong>枚举j，一但找到，果断break掉，便可省去一半的复杂度，并且能够保证是最优解，于是，奇迹般地AC了…</p>
-<h3 id="下面，为大家展示我用上了STL大法，主函数仅约20行的代码："><a href="#下面，为大家展示我用上了STL大法，主函数仅约20行的代码：" class="headerlink" title="下面，为大家展示我用上了STL大法，主函数仅约20行的代码："></a>下面，为大家展示我用上了STL大法，主函数仅约20行的代码：</h3><h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a><strong>代码如下</strong></h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include <iostream>
-#include <cstdio>
-#include <vector>
-#include <queue>
-#include <cmath>
-#include <algorithm>
-#include <cstdlib>
-#include <ctime>
-#include <map>
-#include <stack>
-#include <cstring>
-using namespace std;
-#define ll long long
-//请忽略以上的内容
+<pre><code>并且单词按字典顺序排列</code></pre><p>所以，我们大可以不必枚举完，只需<strong>逆序</strong>枚举j，一但找到，果断break掉，便可省去一半的复杂度，并且能够保证是最优解，于是，奇迹般地AC了…</p>
+<h3 id="下面，为大家展示我用上了STL大法，主函数仅约20行的代码："><a href="#下面，为大家展示我用上了STL大法，主函数仅约20行的代码：" class="headerlink" title="下面，为大家展示我用上了STL大法，主函数仅约20行的代码："></a>下面，为大家展示我用上了STL大法，主函数仅约20行的代码：</h3><h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a><strong>代码如下</strong></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cmath></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdlib></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;ctime></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;map></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stack></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> ll long long</span>
+<span class="token comment" spellcheck="true">//请忽略以上的内容</span>
 
-int n,ans=0;
-string a[10005];//不情愿地用上了速度极慢的string
-int dp[10005];
+<span class="token keyword">int</span> n<span class="token punctuation">,</span>ans<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+string a<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//不情愿地用上了速度极慢的string</span>
+<span class="token keyword">int</span> dp<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-int main(int argc, char const *argv[])
-{
-    ios::sync_with_stdio(false);//流加速
-    cin>>n;
-    for(int i=1;i<=n;i++)
-        cin>>a[i];
-    for(int i=1;i<=n;i++)
-    {
-        for(int j=i-1;j>0;j--)//逆序枚举
-        {
-            int la=a[i].size(),lb=a[j].size();//求长度
-            string b=a[i].substr(0,lb);//STL大法好！
-            /*
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//流加速</span>
+    cin<span class="token operator">>></span>n<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        cin<span class="token operator">>></span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>i<span class="token number">-1</span><span class="token punctuation">;</span>j<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">--</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//逆序枚举</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> la<span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>lb<span class="token operator">=</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//求长度</span>
+            string b<span class="token operator">=</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>lb<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//STL大法好！</span>
+            <span class="token comment" spellcheck="true">/*
                 插播substr()函数详解：
                 此处意为将a[i]这一字符串从下标0开始截取长度为lb的一个子串
                 由此可保证b串与a[j]长度相等，便可以比较
-            */
-            if(la>=lb && b==a[j])
-            {
-                dp[i]=max(dp[i],dp[j]+1);
-                break;//如果找到，break掉
-            }
-        }
-        ans=max(ans,dp[i]);//求出答案
-    }
-    cout<<ans+1<<endl;//由于dp数组初值为0，没有包含第一个字符串，所以此处必须要+1
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            */</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>la<span class="token operator">>=</span>lb <span class="token operator">&amp;&amp;</span> b<span class="token operator">==</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//如果找到，break掉</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        ans<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//求出答案</span>
+    <span class="token punctuation">}</span>
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token operator">+</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//由于dp数组初值为0，没有包含第一个字符串，所以此处必须要+1</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -974,6 +971,8 @@ int main(int argc, char const *argv[])
 
 </main>
 
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 
         <footer class="page-footer bg-color">
     <div class="container row center-align">
@@ -990,7 +989,7 @@ int main(int argc, char const *argv[])
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">27.9k</span> 字
+                <span class="white-color">36.7k</span> 字
             
 
             
@@ -1186,5 +1185,5 @@ $(function () {
             </script>
         
 
-    <script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>

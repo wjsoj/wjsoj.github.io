@@ -591,14 +591,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        835
+                        1.1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        4 分
                     </div>
                     
                 
@@ -617,77 +617,73 @@
 1
 1
 1
-1 2
-</code></pre><h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><pre><code>2
-</code></pre><h3 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a><strong>主要思路</strong></h3><p>此题一看便是dp（废话，人家RQNOJ都告诉你了），经过仔细观察，发现题目中存在这样一句话：</p>
-<pre><code>不存在以下这种情况：n(n&gt;=3)种商品C1，C2，C3，……，Cn，其中Ci和Ci+1是不能同时购买的（i=1,2,……,n-1），而且C1和Cn也不能同时购买。
-</code></pre><p><strong>再结合那m种不能同时购买的情况，其实，这就是一道树上dp题目。</strong><br>思路有了，问题来了：dp方程怎么搞？<br>通过观察发现，此题边无向，便成为了森林类的树上dp。<br><strong>于是，dp方程便出来了：</strong><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI4MjA0NTI3Nzgz?x-oss-process=image/format,png" alt=""><br>这是最终实现时的代码，nex代表与now有边相连的点，<br><strong>其中，按边扩展的dp[i][0]表示不选i及其子树的最大节省金额数</strong><br><strong>dp[i][1]则表示选择i及其子树的最大节省金额数</strong><br>枚举i,求出每一个节点的dp[i][0]与dp[i][1]，求出其中的最大值，从而相加得到最终的答案。</p>
-<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a><strong>代码如下</strong></h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">//如有不懂请参考注释，谢谢！
-#include <iostream>
-#include <cstdio>
-#include <vector>
-#include <queue>
-#include <cmath>
-#include <algorithm>
-#include <cstdlib>
-#include <ctime>
-#include <map>
-#include <stack>
-#include <cstring>
-using namespace std;
-#define ll long long
-//请忽略上面的一切
+1 2</code></pre><h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><pre><code>2</code></pre><h3 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a><strong>主要思路</strong></h3><p>此题一看便是dp（废话，人家RQNOJ都告诉你了），经过仔细观察，发现题目中存在这样一句话：</p>
+<pre><code>不存在以下这种情况：n(n&gt;=3)种商品C1，C2，C3，……，Cn，其中Ci和Ci+1是不能同时购买的（i=1,2,……,n-1），而且C1和Cn也不能同时购买。</code></pre><p><strong>再结合那m种不能同时购买的情况，其实，这就是一道树上dp题目。</strong><br>思路有了，问题来了：dp方程怎么搞？<br>通过观察发现，此题边无向，便成为了森林类的树上dp。<br><strong>于是，dp方程便出来了：</strong><br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI4MjA0NTI3Nzgz?x-oss-process=image/format,png" alt=""><br>这是最终实现时的代码，nex代表与now有边相连的点，<br><strong>其中，按边扩展的dp[i][0]表示不选i及其子树的最大节省金额数</strong><br><strong>dp[i][1]则表示选择i及其子树的最大节省金额数</strong><br>枚举i,求出每一个节点的dp[i][0]与dp[i][1]，求出其中的最大值，从而相加得到最终的答案。</p>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a><strong>代码如下</strong></h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">//如有不懂请参考注释，谢谢！</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cmath></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstdlib></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;ctime></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;map></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stack></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> ll long long</span>
+<span class="token comment" spellcheck="true">//请忽略上面的一切</span>
 
-vector <int> lin[10005];//代替邻接表，当时发现link在RQNOJ中是关键字，便改成了这样
+vector <span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> lin<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//代替邻接表，当时发现link在RQNOJ中是关键字，便改成了这样</span>
 
-int k,m,ans=0;
-int a[1005];
-int dp[1005][2];//根据前文介绍，第二维只需0、1两个下标即可
-bool vis[100005];//判断该点是否被访问过
+<span class="token keyword">int</span> k<span class="token punctuation">,</span>m<span class="token punctuation">,</span>ans<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">1005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> dp<span class="token punctuation">[</span><span class="token number">1005</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//根据前文介绍，第二维只需0、1两个下标即可</span>
+<span class="token keyword">bool</span> vis<span class="token punctuation">[</span><span class="token number">100005</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//判断该点是否被访问过</span>
 
-//披着dfs的dp
-void dfs(int now,int pre)//pre用来检查是否重复走同一条边（因为无向）
-{
-    vis[now]=1;
-    dp[now][0]=0;
-    dp[now][1]=a[now];//由于选择其子树，即至少选择该节点
-    int len=lin[now].size();//由该点出发能通向多少个点
-    for(int i=0;i<len;i++)
-    {
-        int nex=lin[now][i];
-        if(nex!=pre)//如果没有原路返回
-        {
-            dfs(nex,now);//搜索
-            dp[now][0]+=max(dp[nex][0],dp[nex][1]);//如果不选择其子树，便可选择另一点的子树
-            dp[now][1]+=dp[nex][0];//否则不行
-        }
-    }
-}
+<span class="token comment" spellcheck="true">//披着dfs的dp</span>
+<span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> now<span class="token punctuation">,</span><span class="token keyword">int</span> pre<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//pre用来检查是否重复走同一条边（因为无向）</span>
+<span class="token punctuation">{</span>
+    vis<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    dp<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    dp<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>a<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//由于选择其子树，即至少选择该节点</span>
+    <span class="token keyword">int</span> len<span class="token operator">=</span>lin<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//由该点出发能通向多少个点</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> nex<span class="token operator">=</span>lin<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>nex<span class="token operator">!=</span>pre<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//如果没有原路返回</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">dfs</span><span class="token punctuation">(</span>nex<span class="token punctuation">,</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//搜索</span>
+            dp<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>nex<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>nex<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//如果不选择其子树，便可选择另一点的子树</span>
+            dp<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token operator">=</span>dp<span class="token punctuation">[</span>nex<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//否则不行</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-int main(int argc, char const *argv[])
-{
-    memset(vis,0,sizeof(vis));//强迫症犯了...
-    ios::sync_with_stdio(false);//流加速
-    cin>>k>>m;
-    for(int i=1;i<=k;i++)
-        cin>>a[i];
-    for(int i=1;i<=m;i++)
-    {
-        int x,y;
-        cin>>x>>y;
-        lin[x].push_back(y);//由于是无向边（互不相容），需要添加两次
-        lin[y].push_back(x);
-    }
-    for(int i=1;i<=k;i++)//一次对每个未被访问到的节点进行搜索，求出对应的dp[i][0]和dp[i][1]
-        if(!vis[i])
-        {
-            dfs(i,-1);
-            ans+=max(dp[i][0],dp[i][1]);
-        }
-    cout<<ans<<endl;
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">memset</span><span class="token punctuation">(</span>vis<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>vis<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//强迫症犯了...</span>
+    ios<span class="token operator">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//流加速</span>
+    cin<span class="token operator">>></span>k<span class="token operator">>></span>m<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>k<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        cin<span class="token operator">>></span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> x<span class="token punctuation">,</span>y<span class="token punctuation">;</span>
+        cin<span class="token operator">>></span>x<span class="token operator">>></span>y<span class="token punctuation">;</span>
+        lin<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//由于是无向边（互不相容），需要添加两次</span>
+        lin<span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>k<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//一次对每个未被访问到的节点进行搜索，求出对应的dp[i][0]和dp[i][1]</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>vis<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token function">dfs</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ans<span class="token operator">+</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -990,6 +986,8 @@ int main(int argc, char const *argv[])
 
 </main>
 
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 
         <footer class="page-footer bg-color">
     <div class="container row center-align">
@@ -1006,7 +1004,7 @@ int main(int argc, char const *argv[])
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">27.9k</span> 字
+                <span class="white-color">36.7k</span> 字
             
 
             
@@ -1202,5 +1200,5 @@ $(function () {
             </script>
         
 
-    <script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 </html>
