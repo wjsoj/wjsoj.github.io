@@ -552,6 +552,30 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     
     
     <div class="carousel-item amber white-text carousel-post bg-cover"
+            style="background-image: url('/medias/featureimages/17.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <div class="title center-align">Sublime编译系统搭建与配置</div>
+                    <div class="description center-align">
+                    
+                        一.配置环境变量将MinGW下的/bin路径加入系统环境变量Path中。命令提示符输入”g++ -v“检查结果。
+二.添加编译系统所需文件1.负责判断错误、显示命令提示符标题的”run.bat”@echo off
+title Running
+                    
+                    </div>
+                    <div class="cover-btns">
+                        <a href="/2019/12/21/sublime/" class="waves-effect waves-light btn" target="_blank">
+                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="carousel-item amber white-text carousel-post bg-cover"
             style="background-image: url('/medias/featureimages/2.jpg');">
         <div class="container">
             <div class="row">
@@ -586,30 +610,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                     </div>
                     <div class="cover-btns">
                         <a href="/2019/12/20/chang-yong-mo-ban-hui-zong/" class="waves-effect waves-light btn" target="_blank">
-                            <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="carousel-item amber white-text carousel-post bg-cover"
-            style="background-image: url('/medias/featureimages/17.jpg');">
-        <div class="container">
-            <div class="row">
-                <div class="col s10 offset-s1">
-                    <div class="title center-align">Sublime编译系统搭建与配置</div>
-                    <div class="description center-align">
-                    
-                        一.配置环境变量将MinGW下的/bin路径加入系统环境变量Path中。命令提示符输入”g++ -v“检查结果。
-二.添加编译系统所需文件1.负责判断错误、显示命令提示符标题的”run.bat”@echo off
-title Running
-                    
-                    </div>
-                    <div class="cover-btns">
-                        <a href="/2019/12/21/sublime/" class="waves-effect waves-light btn" target="_blank">
                             <i class="icon fa fa-eye fa-fw"></i>阅读更多
                         </a>
                     </div>
@@ -715,7 +715,7 @@ $(function () {
             volume: Number('0.7'),
             listFolded: 'false' === 'true',
             listMaxHeight: '197px',
-            audio: JSON.parse('[{"name":"2019 End Of Year Mix","artist":"Vicetone","url":"https://music.163.com/song/media/outer/url?id=1410370185.mp3","cover":"https://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png"},{"name":"China","artist":"习谱予","url":"https://music.163.com/song/media/outer/url?id=507532178.mp3","cover":"https://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png"},{"name":"惊蛰","artist":"音阙诗听","url":"https://music.163.com/song/media/outer/url?id=862099159.mp3","cover":"https://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png"},{"name":"Hello My Love","artist":"Westlife","url":"https://music.163.com/song/media/outer/url?id=1338728670.mp3","cover":"https://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png"},{"name":"Beijing","artist":"Kissgun","url":"https://music.163.com/song/media/outer/url?id=455382413.mp3","cover":"https://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png"},{"name":"Beautiful People (feat. Khalid)","artist":"Ed Sheeran","url":"https://music.163.com/song/media/outer/url?id=1374483648.mp3","cover":"https://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png"}]')
+            audio: JSON.parse('[{"name":"2019 End Of Year Mix","artist":"Vicetone","url":"https://music.163.com/song/media/outer/url?id=1410370185.mp3","cover":"http://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png"},{"name":"China","artist":"习谱予","url":"https://music.163.com/song/media/outer/url?id=507532178.mp3","cover":"http://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png"},{"name":"惊蛰","artist":"音阙诗听","url":"https://music.163.com/song/media/outer/url?id=862099159.mp3","cover":"http://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png"},{"name":"Hello My Love","artist":"Westlife","url":"https://music.163.com/song/media/outer/url?id=1338728670.mp3","cover":"http://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png"},{"name":"Beijing","artist":"Kissgun","url":"https://music.163.com/song/media/outer/url?id=455382413.mp3","cover":"http://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png"},{"name":"Beautiful People (feat. Khalid)","artist":"Ed Sheeran","url":"https://music.163.com/song/media/outer/url?id=1374483648.mp3","cover":"http://images.cnblogs.com/cnblogs_com/shwee/1218109/o_music_pic1.png"}]')
         });
     });
 </script>
@@ -772,6 +772,56 @@ $(function () {
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/05/03/electron-1/" target="_blank">
+                        <div class="card-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/wjsoj/wjsoj.github.io/medias/featureimages/21.jpg" class="responsive-img" alt="Electron学习笔记（一）">
+                            
+                            <span class="card-title">Electron学习笔记（一）</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                            1. 安装1.1 初始化首先进入我们需要安装Electron的目录，以开发模式保存在目录中，而不是全局安装。
+npm init
+npm install electron --save-dev
+此处安装过程npm使用淘宝镜像加速速度还算可以，
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-03
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/electron/" class="post-category" target="_blank">
+                                    electron
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/electron/" target="_blank">
+                            <span class="chip bg-color">electron</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1462,53 +1512,6 @@ title Running
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/12/21/rqnoj-188-gou-wu-wen-ti/" target="_blank">
-                        <div class="card-image">
-                            
-                            
-                            <img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/wjsoj/wjsoj.github.io/medias/featureimages/19.jpg" class="responsive-img" alt="RQNOJ 188 购物问题">
-                            
-                            <span class="card-title">RQNOJ 188 购物问题</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                            RQNOJ 188 购物问题题目描述传送门由于换季，商场推出优惠活动，以超低价格出售若干种商品。但是商场为避免过分亏本，规定某些商品不能同时购买，而且每种超低价商品只能买一件。身为顾客的你想获得最大的实惠，也就是争取节省最多的钱。经过仔细研
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/algorithm/" class="post-category" target="_blank">
-                                    algorithm
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/algorithm/" target="_blank">
-                            <span class="chip bg-color">algorithm</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1554,7 +1557,7 @@ title Running
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">37.1k</span> 字
+                <span class="white-color">37.8k</span> 字
             
 
             

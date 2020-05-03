@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wjsoj.github.io/"/>
-  <updated>2020-03-27T15:55:15.411Z</updated>
+  <updated>2020-05-03T16:06:25.019Z</updated>
   <id>https://wjsoj.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Electron学习笔记（一）</title>
+    <link href="https://wjsoj.github.io/2020/05/03/electron-1/"/>
+    <id>https://wjsoj.github.io/2020/05/03/electron-1/</id>
+    <published>2020-05-03T03:43:03.000Z</published>
+    <updated>2020-05-03T16:06:25.019Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-安装&quot;&gt;&lt;a href=&quot;#1-安装&quot; class=&quot;headerlink&quot; title=&quot;1. 安装&quot;&gt;&lt;/a&gt;1. 安装&lt;/h1&gt;&lt;h2 id=&quot;1-1-初始化&quot;&gt;&lt;a href=&quot;#1-1-初始化&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="electron" scheme="https://wjsoj.github.io/categories/electron/"/>
+    
+    
+      <category term="electron" scheme="https://wjsoj.github.io/tags/electron/"/>
+    
+  </entry>
   
   <entry>
     <title>B站BV号与av号互转</title>
@@ -512,32 +538,6 @@
     
     
       <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown语法知识</title>
-    <link href="https://wjsoj.github.io/2019/12/21/markdown/"/>
-    <id>https://wjsoj.github.io/2019/12/21/markdown/</id>
-    <published>2019-12-21T03:44:03.000Z</published>
-    <updated>2020-03-27T16:59:12.566Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一-Markdown是什么？&quot;&gt;&lt;a href=&quot;#一-Markdown是什么？&quot; class=&quot;headerlink&quot; title=&quot;一.Markdown是什么？&quot;&gt;&lt;/a&gt;一.Markdown是什么？&lt;/h1&gt;&lt;p&gt;
-        
-      
-    
-    </summary>
-    
-      <category term="software" scheme="https://wjsoj.github.io/categories/software/"/>
-    
-    
-      <category term="software" scheme="https://wjsoj.github.io/tags/software/"/>
     
   </entry>
   
