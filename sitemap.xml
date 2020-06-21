@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wjsoj.github.io/2020/05/15/pandownload/</loc>
+    
+    <lastmod>2020-05-15T14:41:10.149Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wjsoj.github.io/2020/05/03/electron-1/</loc>
     
     <lastmod>2020-05-03T16:06:25.019Z</lastmod>
@@ -212,14 +219,14 @@
   </url>
   
   <url>
-    <loc>https://wjsoj.github.io/friends/index.html</loc>
+    <loc>https://wjsoj.github.io/galleries/index.html</loc>
     
     <lastmod>2019-12-20T15:11:22.916Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://wjsoj.github.io/galleries/index.html</loc>
+    <loc>https://wjsoj.github.io/friends/index.html</loc>
     
     <lastmod>2019-12-20T15:11:22.916Z</lastmod>
     

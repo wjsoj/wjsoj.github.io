@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wjsoj.github.io/"/>
-  <updated>2020-05-03T16:06:25.019Z</updated>
+  <updated>2020-05-15T14:41:10.149Z</updated>
   <id>https://wjsoj.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Pan Dwonload事件始末及我见</title>
+    <link href="https://wjsoj.github.io/2020/05/15/pandownload/"/>
+    <id>https://wjsoj.github.io/2020/05/15/pandownload/</id>
+    <published>2020-05-15T03:43:03.000Z</published>
+    <updated>2020-05-15T14:41:10.149Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-事件概述&quot;&gt;&lt;a href=&quot;#1-事件概述&quot; class=&quot;headerlink&quot; title=&quot;1. 事件概述&quot;&gt;&lt;/a&gt;1. 事件概述&lt;/h1&gt;&lt;p&gt;2020年4月15日，扬州宝应网安发布一条微博，声称Pan
+        
+      
+    
+    </summary>
+    
+      <category term="software" scheme="https://wjsoj.github.io/categories/software/"/>
+    
+      <category term="life" scheme="https://wjsoj.github.io/categories/software/life/"/>
+    
+    
+      <category term="software" scheme="https://wjsoj.github.io/tags/software/"/>
+    
+      <category term="life" scheme="https://wjsoj.github.io/tags/life/"/>
+    
+  </entry>
   
   <entry>
     <title>Electron学习笔记（一）</title>
@@ -223,9 +253,9 @@
       <category term="life" scheme="https://wjsoj.github.io/categories/python/life/"/>
     
     
-      <category term="python" scheme="https://wjsoj.github.io/tags/python/"/>
-    
       <category term="life" scheme="https://wjsoj.github.io/tags/life/"/>
+    
+      <category term="python" scheme="https://wjsoj.github.io/tags/python/"/>
     
   </entry>
   
@@ -503,32 +533,6 @@
         
         
           &lt;h1 id=&quot;RQNOJ-95-多多看DVD-加强版&quot;&gt;&lt;a href=&quot;#RQNOJ-95-多多看DVD-加强版&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 95 多多看DVD(加强版)&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 95
-        
-      
-    
-    </summary>
-    
-      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
-    
-    
-      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RQNOJ 57 找啊找啊找GF</title>
-    <link href="https://wjsoj.github.io/2019/12/21/rqnoj-57-zhao-a-zhao-a-zhao-gf/"/>
-    <id>https://wjsoj.github.io/2019/12/21/rqnoj-57-zhao-a-zhao-a-zhao-gf/</id>
-    <published>2019-12-21T03:45:03.000Z</published>
-    <updated>2019-12-21T15:14:10.825Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;RQNOJ-57-找啊找啊找GF&quot;&gt;&lt;a href=&quot;#RQNOJ-57-找啊找啊找GF&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 57 找啊找啊找GF&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 57
         
       
     
