@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wjsoj.github.io/"/>
-  <updated>2020-07-14T16:01:24.611Z</updated>
+  <updated>2020-07-14T16:17:36.933Z</updated>
   <id>https://wjsoj.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://wjsoj.github.io/2020/05/15/pandownload/"/>
     <id>https://wjsoj.github.io/2020/05/15/pandownload/</id>
     <published>2020-05-15T03:43:03.000Z</published>
-    <updated>2020-07-14T16:01:24.611Z</updated>
+    <updated>2020-07-14T16:17:36.933Z</updated>
     
     <summary type="html">
     
@@ -253,9 +253,9 @@
       <category term="life" scheme="https://wjsoj.github.io/categories/python/life/"/>
     
     
-      <category term="life" scheme="https://wjsoj.github.io/tags/life/"/>
-    
       <category term="python" scheme="https://wjsoj.github.io/tags/python/"/>
+    
+      <category term="life" scheme="https://wjsoj.github.io/tags/life/"/>
     
   </entry>
   
