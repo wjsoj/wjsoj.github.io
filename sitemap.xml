@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wjsoj.github.io/2020/08/19/pysynth/</loc>
+    
+    <lastmod>2020-08-19T16:46:58.553Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://wjsoj.github.io/about/index.html</loc>
+    
+    <lastmod>2020-08-19T14:00:42.018Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wjsoj.github.io/2020/05/15/pandownload/</loc>
     
-    <lastmod>2020-07-14T16:17:36.933Z</lastmod>
+    <lastmod>2020-08-19T13:52:55.852Z</lastmod>
     
   </url>
   
@@ -187,13 +201,6 @@
     <loc>https://wjsoj.github.io/2019/12/21/ou-la-shai/</loc>
     
     <lastmod>2019-12-21T15:04:24.192Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://wjsoj.github.io/about/index.html</loc>
-    
-    <lastmod>2019-12-21T14:36:44.587Z</lastmod>
     
   </url>
   

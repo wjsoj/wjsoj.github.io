@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wjsoj.github.io/"/>
-  <updated>2020-07-14T16:17:36.933Z</updated>
+  <updated>2020-08-19T16:46:58.553Z</updated>
   <id>https://wjsoj.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PySynth合成器使用</title>
+    <link href="https://wjsoj.github.io/2020/08/19/pysynth/"/>
+    <id>https://wjsoj.github.io/2020/08/19/pysynth/</id>
+    <published>2020-08-19T08:22:51.000Z</published>
+    <updated>2020-08-19T16:46:58.553Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-概述&quot;&gt;&lt;a href=&quot;#1-概述&quot; class=&quot;headerlink&quot; title=&quot;1. 概述&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://wjsoj.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://wjsoj.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Pan Dwonload事件始末及我见</title>
     <link href="https://wjsoj.github.io/2020/05/15/pandownload/"/>
     <id>https://wjsoj.github.io/2020/05/15/pandownload/</id>
     <published>2020-05-15T03:43:03.000Z</published>
-    <updated>2020-07-14T16:17:36.933Z</updated>
+    <updated>2020-08-19T13:52:55.852Z</updated>
     
     <summary type="html">
     
@@ -507,32 +533,6 @@
         
         
           &lt;h1 id=&quot;RQNOJ-99-配置魔药&quot;&gt;&lt;a href=&quot;#RQNOJ-99-配置魔药&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 99 配置魔药&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 99 配置魔药&lt;/strong&gt;&lt;/h1&gt;&lt;h3
-        
-      
-    
-    </summary>
-    
-      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
-    
-    
-      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RQNOJ 95 多多看DVD(加强版)</title>
-    <link href="https://wjsoj.github.io/2019/12/21/rqnoj-95-duo-duo-kan-dvd-jia-qiang-ban/"/>
-    <id>https://wjsoj.github.io/2019/12/21/rqnoj-95-duo-duo-kan-dvd-jia-qiang-ban/</id>
-    <published>2019-12-21T03:46:03.000Z</published>
-    <updated>2019-12-21T15:14:37.130Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;RQNOJ-95-多多看DVD-加强版&quot;&gt;&lt;a href=&quot;#RQNOJ-95-多多看DVD-加强版&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 95 多多看DVD(加强版)&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 95
         
       
     
