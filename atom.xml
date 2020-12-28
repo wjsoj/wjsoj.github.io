@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wjsoj.github.io/"/>
-  <updated>2020-08-19T16:46:58.553Z</updated>
+  <updated>2020-12-28T17:37:22.972Z</updated>
   <id>https://wjsoj.github.io/</id>
   
   <author>
@@ -15,6 +15,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小米11发布会总结</title>
+    <link href="https://wjsoj.github.io/2020/12/28/mi/"/>
+    <id>https://wjsoj.github.io/2020/12/28/mi/</id>
+    <published>2020-12-28T14:44:03.000Z</published>
+    <updated>2020-12-28T17:37:22.972Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="life" scheme="https://wjsoj.github.io/categories/life/"/>
+    
+    
+      <category term="life" scheme="https://wjsoj.github.io/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Archlinux+Deepin V20</title>
+    <link href="https://wjsoj.github.io/2020/11/07/archlinux-deepin/"/>
+    <id>https://wjsoj.github.io/2020/11/07/archlinux-deepin/</id>
+    <published>2020-11-07T08:22:51.000Z</published>
+    <updated>2020-11-26T17:39:55.856Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-安装前准备&quot;&gt;&lt;a href=&quot;#1-安装前准备&quot; class=&quot;headerlink&quot; title=&quot;1. 安装前准备&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+      <category term="software" scheme="https://wjsoj.github.io/categories/software/"/>
+    
+    
+      <category term="software" scheme="https://wjsoj.github.io/tags/software/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《致命魔术》观后感</title>
+    <link href="https://wjsoj.github.io/2020/10/17/the-prestige/"/>
+    <id>https://wjsoj.github.io/2020/10/17/the-prestige/</id>
+    <published>2020-10-17T08:22:51.000Z</published>
+    <updated>2020-10-17T18:26:56.597Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-概述&quot;&gt;&lt;a href=&quot;#1-概述&quot; class=&quot;headerlink&quot; title=&quot;1. 概述&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+      <category term="movie" scheme="https://wjsoj.github.io/categories/movie/"/>
+    
+    
+      <category term="movie" scheme="https://wjsoj.github.io/tags/movie/"/>
+    
+  </entry>
   
   <entry>
     <title>PySynth合成器使用</title>
@@ -455,84 +533,6 @@
         
         
           &lt;h1 id=&quot;RQNOJ-429-词链&quot;&gt;&lt;a href=&quot;#RQNOJ-429-词链&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 429 词链&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 429 词链&lt;/strong&gt;&lt;/h1&gt;&lt;h3
-        
-      
-    
-    </summary>
-    
-      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
-    
-    
-      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RQNOJ 188 购物问题</title>
-    <link href="https://wjsoj.github.io/2019/12/21/rqnoj-188-gou-wu-wen-ti/"/>
-    <id>https://wjsoj.github.io/2019/12/21/rqnoj-188-gou-wu-wen-ti/</id>
-    <published>2019-12-21T03:49:03.000Z</published>
-    <updated>2019-12-21T15:15:51.697Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;RQNOJ-188-购物问题&quot;&gt;&lt;a href=&quot;#RQNOJ-188-购物问题&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 188 购物问题&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 188 购物问题&lt;/strong&gt;&lt;/h1&gt;&lt;h3
-        
-      
-    
-    </summary>
-    
-      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
-    
-    
-      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RQNOJ 117 最佳课题选择</title>
-    <link href="https://wjsoj.github.io/2019/12/21/rqnoj-117-zui-jia-ke-ti-xuan-ze/"/>
-    <id>https://wjsoj.github.io/2019/12/21/rqnoj-117-zui-jia-ke-ti-xuan-ze/</id>
-    <published>2019-12-21T03:48:03.000Z</published>
-    <updated>2019-12-21T15:15:26.536Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;RQNOJ-117-最佳课题选择&quot;&gt;&lt;a href=&quot;#RQNOJ-117-最佳课题选择&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 117 最佳课题选择&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 117
-        
-      
-    
-    </summary>
-    
-      <category term="algorithm" scheme="https://wjsoj.github.io/categories/algorithm/"/>
-    
-    
-      <category term="algorithm" scheme="https://wjsoj.github.io/tags/algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RQNOJ 99 配置魔药</title>
-    <link href="https://wjsoj.github.io/2019/12/21/rqnoj-99-pei-zhi-mo-yao/"/>
-    <id>https://wjsoj.github.io/2019/12/21/rqnoj-99-pei-zhi-mo-yao/</id>
-    <published>2019-12-21T03:47:03.000Z</published>
-    <updated>2019-12-21T15:17:24.880Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;RQNOJ-99-配置魔药&quot;&gt;&lt;a href=&quot;#RQNOJ-99-配置魔药&quot; class=&quot;headerlink&quot; title=&quot;RQNOJ 99 配置魔药&quot;&gt;&lt;/a&gt;&lt;strong&gt;RQNOJ 99 配置魔药&lt;/strong&gt;&lt;/h1&gt;&lt;h3
         
       
     
